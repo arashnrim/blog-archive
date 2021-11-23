@@ -15,6 +15,7 @@
   "devDependencies": {
     "@types/node": "16.11.7",
     "@types/react": "17.0.34",
+    "autoprefixer": "^10.4.0",
     "eslint": "7",
     "eslint-config-next": "12.0.3",
     "eslint-config-prettier": "^8.3.0",
@@ -22,6 +23,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.0.2",
     "prettier": "^2.4.1",
+    "tailwindcss": "^2.2.19",
     "typescript": "4.4.4"
   },
   "lint-staged": {
