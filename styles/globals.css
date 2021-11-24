@@ -47,7 +47,7 @@
     }
     @font-face {
         font-family: "JetBrains Mono";
-        font-style: "italic";
+        font-style: italic;
         font-display: swap;
         font-weight: 700;
         src: url("../public/fonts/JetBrainsMono-BoldItalic.woff2") format("woff2");

@@ -5,7 +5,7 @@ const Placeholder = () => {
       <h2 className="text-4xl font-bold text-center sm:text-5xl lg:text-6xl 2xl:text-7xl font-heading">
         Oh, hello there!
       </h2>
-      <p>
+      <p className="text-sm lg:w-2/3 sm:text-lg 2xl:text-xl">
         It seems like you&#39;ve found my blog while it&#39;s still under
         development. Thanks for searching this far!
         <br />
