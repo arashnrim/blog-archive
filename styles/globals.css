@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Clash Display";
+        font-display: swap;
+        font-weight: 400;
+        src: url("../public/fonts/ClashDisplay-Regular.woff2") format("woff2");
+        src: url("../public/fonts/ClashDisplay-Regular.woff") format("woff");
+    }
+    @font-face {
+        font-family: "Clash Display";
+        font-display: swap;
+        font-weight: 600;
+        src: url("../public/fonts/ClashDisplay-Semibold.woff2") format("woff2");
+        src: url("../public/fonts/ClashDisplay-Semibold.woff") format("woff");
+    }
+    @font-face {
+        font-family: "Inter";
+        font-display: swap;
+        font-weight: 400;
+        src: url("../public/fonts/Inter-Regular.woff2") format("woff2");
+        src: url("../public/fonts/Inter-Regular.woff") format("woff");
+    }
+    @font-face {
+        font-family: "Inter";
+        font-display: swap;
+        font-weight: 700;
+        src: url("../public/fonts/Inter-Bold.woff2") format("woff2");
+        src: url("../public/fonts/Inter-Bold.woff") format("woff");
+    }
+    @font-face {
+        font-family: "JetBrains Mono";
+        font-display: swap;
+        font-weight: 400;
+        src: url("../public/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+        src: url("../public/fonts/JetBrainsMono-Regular.woff") format("woff");
+    }
+    @font-face {
+        font-family: "JetBrains Mono";
+        font-display: swap;
+        font-weight: 500;
+        src: url("../public/fonts/JetBrainsMono-Medium.woff2") format("woff2");
+        src: url("../public/fonts/JetBrainsMono-Medium.woff") format("woff");
+    }
+}
+
+@layer utilities {
+    .dotted {
+        text-decoration: underline dotted;
+        text-underline-offset: 5px;
+    }
+}
