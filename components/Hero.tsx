@@ -2,7 +2,7 @@ import InlineLink from "./InlineLink";
 
 const Hero = () => {
   return (
-    <section className="w-screen h-[50vh] bg-black rounded-b-3xl flex flex-col justify-center px-10 space-y-2">
+    <section className="w-screen h-[50vh] bg-black rounded-b-3xl flex flex-col justify-center px-10 md:px-20 lg:px-40 space-y-2">
       <h1 className="font-mono text-4xl italic font-bold break-all">
         function()
       </h1>
