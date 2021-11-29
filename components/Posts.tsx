@@ -1,3 +1,11 @@
+import { Frontmatter } from "../utils/post";
+import Link from "next/link";
+import { FaClock, FaTag, FaTags } from "react-icons/fa";
+
+interface PostsProps {
+  frontmatters: Frontmatter[];
+}
+
 const Placeholder = () => {
   return (
     <div className="flex flex-col items-center justify-center h-full px-5 py-10 space-y-5 text-center border border-yellow-600 rounded-3xl">
@@ -17,10 +25,44 @@ const Placeholder = () => {
   );
 };
 
-const Posts = () => {
+const Posts = ({ frontmatters }: PostsProps) => {
   return (
-    <section className="flex items-center justify-center w-screen h-auto px-10 py-10 md:px-12 lg:px-20">
-      <Placeholder />
+    <section className="grid grid-cols-1 px-10 py-10 lg:grid-cols-2 lg:py-20 md:px-12 lg:px-20 gap-y-10 lg:gap-y-0 lg:gap-x-10">
+      {frontmatters ? (
+        frontmatters.map((frontmatter) => (
+          <Link href={frontmatter.slug!} key={frontmatter.title} passHref>
+            <div className="p-10 space-y-2 transition-colors duration-200 border border-gray-700 cursor-pointer hover:border-blue-400 rounded-2xl">
+              <h2 className="text-4xl font-bold font-heading">
+                {frontmatter.title}
+              </h2>
+              {frontmatter.description ? (
+                <p className="sm:text-lg md:text-xl">
+                  {frontmatter.description}
+                </p>
+              ) : null}
+              <span className="flex flex-row items-center space-x-2">
+                <FaClock />
+                <p>{frontmatter.date}</p>
+              </span>
+              {frontmatter.tags === undefined ? null : (
+                <span className="flex flex-row items-center space-x-2">
+                  {frontmatter.tags.length > 1 ? <FaTags /> : <FaTag />}
+                  {frontmatter.tags.map((tag) => (
+                    <p
+                      className="px-2 border border-gray-700 rounded-lg"
+                      key={tag}
+                    >
+                      {tag}
+                    </p>
+                  ))}
+                </span>
+              )}
+            </div>
+          </Link>
+        ))
+      ) : (
+        <Placeholder />
+      )}
     </section>
   );
 };
