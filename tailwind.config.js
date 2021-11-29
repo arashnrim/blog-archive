@@ -14,10 +14,41 @@ module.exports = {
       colors: {
         gray: colors.trueGray,
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: "#FFF",
+            h1: {
+              color: "#FFF",
+              fontFamily: "'Clash Display'",
+            },
+            h2: {
+              color: "#FFF",
+              fontFamily: "'Clash Display'",
+            },
+            h3: {
+              color: "#FFF",
+              fontFamily: "'Clash Display'",
+            },
+            h4: {
+              color: "#FFF",
+              fontFamily: "'Clash Display'",
+            },
+            h5: {
+              color: "#FFF",
+              fontFamily: "'Clash Display'",
+            },
+            h6: {
+              color: "#FFF",
+              fontFamily: "'Clash Display'",
+            },
+          },
+        },
+      }),
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
