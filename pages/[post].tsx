@@ -43,7 +43,7 @@ const Post = ({ frontmatter, code }: PostProps) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const files = fs.readdirSync(path.join("posts"), "utf-8");
+  const files = fs.readdirSync(path.join(process.cwd(), "posts"), "utf-8");
   const paths = files.map((file) => ({
     params: {
       post: file.replace(".mdx", ""),
