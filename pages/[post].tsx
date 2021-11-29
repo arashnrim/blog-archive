@@ -79,7 +79,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     );
   }
 
-  const result = await bundleMDX({
+  const { code, frontmatter } = await bundleMDX({
     source: unprocessedContent,
     xdmOptions(options) {
       options.rehypePlugins = [...(options.rehypePlugins ?? []), rehypePrism];
@@ -87,7 +87,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       return options;
     },
   });
-  const { code, frontmatter } = result;
 
   return {
     props: {
