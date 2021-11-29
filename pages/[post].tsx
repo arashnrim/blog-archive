@@ -1,25 +1,21 @@
 import fs from "fs";
-import { GetStaticPaths, GetStaticProps } from "next";
-import path from "path";
-import { FaClock } from "react-icons/fa";
 import { bundleMDX } from "mdx-bundler";
 import { getMDXComponent } from "mdx-bundler/client";
-import Layout from "../components/Layout";
-import rehypePrism from "rehype-prism-plus";
+import { GetStaticPaths, GetStaticProps } from "next";
+import path from "path";
 import { useMemo } from "react";
-import Head from "next/head";
+import { FaClock } from "react-icons/fa";
+import rehypePrism from "rehype-prism-plus";
+import Layout from "../components/Layout";
+import { Frontmatter } from "../utils/post";
+import type { NextPage } from "next";
 
 interface PostProps {
-  frontmatter: {
-    date: string;
-    description: string;
-    tags: [string];
-    title: string;
-  };
+  frontmatter: Frontmatter;
   code: string;
 }
 
-const Post = ({ frontmatter, code }: PostProps) => {
+const Post: NextPage<PostProps> = ({ frontmatter, code }: PostProps) => {
   const RenderedComponent = useMemo(() => getMDXComponent(code), [code]);
 
   return (
