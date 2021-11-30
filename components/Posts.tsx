@@ -48,12 +48,14 @@ const Posts = ({ frontmatters }: PostsProps) => {
                 <span className="flex flex-row items-center space-x-2">
                   {frontmatter.tags.length > 1 ? <FaTags /> : <FaTag />}
                   {frontmatter.tags.map((tag) => (
-                    <p
-                      className="px-2 border border-gray-700 rounded-lg"
-                      key={tag}
-                    >
-                      {tag}
-                    </p>
+                    <Link href={`/tags/${tag}`} key={tag} passHref>
+                      <p
+                        className="px-2 transition-colors duration-200 border border-gray-700 rounded-lg cursor-pointer hover:border-blue-400"
+                        key={tag}
+                      >
+                        {tag}
+                      </p>
+                    </Link>
                   ))}
                 </span>
               )}
