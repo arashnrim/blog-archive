@@ -1,7 +1,6 @@
 import React from "react";
-
-import Header from "./Header";
 import Footer from "./Footer";
+import Header from "./Header";
 
 interface LayoutProps {
   className?: string;
@@ -11,7 +10,7 @@ interface LayoutProps {
 const Layout = ({ className = "", children }: LayoutProps) => (
   <>
     <Header />
-    <main className={className}>{children}</main>
+    <main className={className + " min-h-screen"}>{children}</main>
     <Footer />
   </>
 );
