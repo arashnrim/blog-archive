@@ -1,12 +1,12 @@
 import fs from "fs";
+import matter from "gray-matter";
 import type { NextPage } from "next";
 import { GetStaticProps } from "next";
 import path from "path";
 import Hero from "../components/Hero";
 import Layout from "../components/Layout";
 import Posts from "../components/Posts";
-import matter from "gray-matter";
-import { Frontmatter } from "../utils/post";
+import { Frontmatter } from "../utils/post-utils";
 
 interface IndexProps {
   frontmatters: Frontmatter[];

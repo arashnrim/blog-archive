@@ -7,7 +7,7 @@ import { useMemo } from "react";
 import { FaClock } from "react-icons/fa";
 import rehypePrism from "rehype-prism-plus";
 import Layout from "../components/Layout";
-import { Frontmatter } from "../utils/post";
+import { Frontmatter } from "../utils/post-utils";
 import type { NextPage } from "next";
 
 interface PostProps {

@@ -1,4 +1,4 @@
-import { Frontmatter } from "../utils/post";
+import { Frontmatter } from "../utils/post-utils";
 import Link from "next/link";
 import { FaClock, FaTag, FaTags } from "react-icons/fa";
 
