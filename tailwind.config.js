@@ -42,6 +42,11 @@ module.exports = {
               color: "#FFF",
               fontFamily: "'Clash Display'",
             },
+            a: {
+              color: "#FFF",
+              textDecoration: "underline dotted",
+              textUnderlineOffset: "5px",
+            },
           },
         },
       }),
