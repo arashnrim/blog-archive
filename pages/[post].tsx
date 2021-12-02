@@ -30,7 +30,7 @@ const Post: NextPage<PostProps> = ({ frontmatter, code }: PostProps) => {
             <p>{frontmatter.date}</p>
           </span>
         </section>
-        <article className="px-10 py-10 prose lg:py-20 sm:prose-xl md:prose-2xl max-w-none md:px-20 lg:px-40">
+        <article className="px-20 py-10 prose prose-lg lg:py-20 sm:prose-xl md:prose-2xl max-w-none md:px-40 lg:px-80">
           <RenderedComponent />
         </article>
       </Layout>
