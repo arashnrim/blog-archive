@@ -4,11 +4,12 @@ import { getMDXComponent } from "mdx-bundler/client";
 import { GetStaticPaths, GetStaticProps } from "next";
 import path from "path";
 import { useMemo } from "react";
-import { FaClock } from "react-icons/fa";
+import { FaCalendar, FaClock } from "react-icons/fa";
 import rehypePrism from "rehype-prism-plus";
 import Layout from "../components/Layout";
 import { Frontmatter } from "../utils/post-utils";
 import type { NextPage } from "next";
+import { calculatePostReadingTime } from "../utils/post-utils";
 
 interface PostProps {
   frontmatter: Frontmatter;
@@ -17,6 +18,13 @@ interface PostProps {
 
 const Post: NextPage<PostProps> = ({ frontmatter, code }: PostProps) => {
   const RenderedComponent = useMemo(() => getMDXComponent(code), [code]);
+  const readingTime = useMemo(
+    () =>
+      frontmatter.words
+        ? calculatePostReadingTime(frontmatter.words)
+        : undefined,
+    [frontmatter.words]
+  );
 
   return (
     <>
@@ -25,9 +33,13 @@ const Post: NextPage<PostProps> = ({ frontmatter, code }: PostProps) => {
           <h1 className="text-4xl font-bold font-heading sm:text-5xl lg:text-7xl 2xl:text-8xl">
             {frontmatter.title}
           </h1>
-          <span className="flex items-center space-x-2 sm:text-xl md:text-2xl">
-            <FaClock />
+          <span className="flex items-center space-x-2 sm:text-xl">
+            <FaCalendar title="Date written" aria-label="Reading time" />
             <p>{frontmatter.date}</p>
+          </span>
+          <span className="flex items-center space-x-2 sm:text-xl">
+            <FaClock title="Reading time" aria-label="Reading time" />
+            <p>{readingTime} minutes</p>
           </span>
         </section>
         <article className="px-20 py-10 prose prose-lg lg:py-20 sm:prose-xl md:prose-2xl max-w-none md:px-40 lg:px-80">

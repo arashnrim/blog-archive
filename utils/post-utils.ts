@@ -6,6 +6,7 @@ export interface Frontmatter {
   tags?: string[];
   title: string;
   slug?: string;
+  words?: number;
 }
 
 export const fetchPostFrontmatter = (
@@ -19,4 +20,13 @@ export const fetchPostFrontmatter = (
     ? (frontmatter["tags"] = tags.split(","))
     : (frontmatter["tags"] = tags);
   return frontmatter;
+};
+
+export const calculatePostReadingTime = (numberOfWords: number) => {
+  let minutes = numberOfWords / 200;
+  let seconds = (minutes % 1) * 0.6 * 100;
+  minutes = Math.round(minutes);
+  seconds = Math.round(seconds);
+
+  return Math.round(minutes + seconds / 60);
 };
