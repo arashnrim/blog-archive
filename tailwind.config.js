@@ -21,31 +21,52 @@ module.exports = {
             h1: {
               color: "#FFF",
               fontFamily: "'Clash Display'",
+              fontWeight: "700",
             },
             h2: {
               color: "#FFF",
               fontFamily: "'Clash Display'",
+              fontWeight: "700",
             },
             h3: {
               color: "#FFF",
               fontFamily: "'Clash Display'",
+              fontWeight: "700",
             },
             h4: {
               color: "#FFF",
               fontFamily: "'Clash Display'",
+              fontWeight: "700",
             },
             h5: {
               color: "#FFF",
               fontFamily: "'Clash Display'",
+              fontWeight: "700",
             },
             h6: {
               color: "#FFF",
               fontFamily: "'Clash Display'",
+              fontWeight: "700",
             },
             a: {
               color: "#FFF",
               textDecoration: "underline dotted",
               textUnderlineOffset: "5px",
+              "&:hover": {
+                opacity: "75%",
+                transitionProperty: "opacity",
+                transitionDuration: "200",
+              },
+            },
+            blockquote: {
+              color: "#FFF",
+            },
+            strong: {
+              color: "#FFF",
+            },
+            code: {
+              color: "#FFF",
+              fontFamily: "'JetBrains Mono'",
             },
           },
         },

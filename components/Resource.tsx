@@ -1,0 +1,42 @@
+import Prompt from "./Prompt";
+
+interface Link {
+  title: string;
+  link: string;
+}
+
+interface ResourceProps {
+  links: Link[];
+  customBody?: string;
+}
+
+const Resource = ({ links, customBody }: ResourceProps) => {
+  return (
+    <Prompt
+      status="resource"
+      title={links.length == 1 ? "Resource" : "Resources"}
+    >
+      {customBody
+        ? customBody
+        : "The resources below were mentioned and may serve to help:"}
+      <section className="grid grid-cols-1 gap-5 pt-5 md:grid-cols-2">
+        {links.map((link) => (
+          <a
+            href={link.link}
+            target="_blank"
+            rel="noreferrer"
+            className="!no-underline duration-200"
+            key={link.title}
+          >
+            <div className="h-full p-5 border rounded-2xl">
+              <p className="!my-0 font-bold">{link.title}</p>
+              <p className="!my-0 md:text-lg break-words">{link.link}</p>
+            </div>
+          </a>
+        ))}
+      </section>
+    </Prompt>
+  );
+};
+
+export default Resource;

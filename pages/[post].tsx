@@ -29,11 +29,11 @@ const Post: NextPage<PostProps> = ({ frontmatter, code }: PostProps) => {
   return (
     <>
       <Layout>
-        <section className="h-[33vh] bg-black pb-10 flex flex-col justify-end rounded-b-3xl px-10 md:px-20 lg:px-40">
+        <section className="h-[33vh] lg:h-[50vh] bg-black pb-10 flex flex-col justify-end rounded-b-3xl px-10 md:px-20 lg:px-40">
           <h1 className="text-4xl font-bold font-heading sm:text-5xl lg:text-7xl 2xl:text-8xl">
             {frontmatter.title}
           </h1>
-          <span className="flex items-center space-x-2 sm:text-xl">
+          <span className="flex items-center pt-5 space-x-2 sm:text-xl">
             <FaCalendar title="Date written" aria-label="Reading time" />
             <p>{frontmatter.date}</p>
           </span>
