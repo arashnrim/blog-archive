@@ -14,9 +14,10 @@ import { calculatePostReadingTime } from "../utils/post-utils";
 interface PostProps {
   frontmatter: Frontmatter;
   code: string;
+  slug?: string;
 }
 
-const Post: NextPage<PostProps> = ({ frontmatter, code }: PostProps) => {
+const Post: NextPage<PostProps> = ({ frontmatter, code, slug }: PostProps) => {
   const RenderedComponent = useMemo(() => getMDXComponent(code), [code]);
   const readingTime = useMemo(
     () =>
@@ -28,7 +29,11 @@ const Post: NextPage<PostProps> = ({ frontmatter, code }: PostProps) => {
 
   return (
     <>
-      <Layout>
+      <Layout
+        postTitle={frontmatter.title}
+        postDescription={frontmatter.description}
+        postURL={"https://blog.arash.codes/" + slug}
+      >
         <section className="h-[33vh] lg:h-[50vh] bg-black pb-10 flex flex-col justify-end rounded-b-3xl px-10 md:px-20 lg:px-40">
           <h1 className="text-4xl font-bold font-heading sm:text-5xl lg:text-7xl 2xl:text-8xl">
             {frontmatter.title}
@@ -100,6 +105,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       frontmatter,
       code,
+      slug,
     },
   };
 };
