@@ -1,3 +1,4 @@
 *.{js,ts,json} linguist-detectable=false
 public/** linguist-detectable=false
 .husky/** linguist-detectable=false
+.yarn/** linguist-detectable=false
