@@ -34,8 +34,8 @@ const Post: NextPage<PostProps> = ({ frontmatter, code, slug }: PostProps) => {
         postDescription={frontmatter.description}
         postURL={"https://blog.arash.codes/" + slug}
       >
-        <section className="h-[33vh] lg:h-[50vh] bg-black pb-10 flex flex-col justify-end rounded-b-3xl px-10 md:px-20 lg:px-40">
-          <h1 className="text-4xl font-bold font-heading sm:text-5xl lg:text-7xl 2xl:text-8xl">
+        <section className="h-[50vh] bg-black pb-10 flex flex-col justify-end rounded-b-3xl px-10 md:px-20 lg:px-40">
+          <h1 className="text-4xl font-bold font-heading sm:text-6xl lg:text-7xl 2xl:text-8xl">
             {frontmatter.title}
           </h1>
           <span className="flex items-center pt-5 space-x-2 sm:text-xl">
@@ -47,7 +47,7 @@ const Post: NextPage<PostProps> = ({ frontmatter, code, slug }: PostProps) => {
             <p>{readingTime} minutes</p>
           </span>
         </section>
-        <article className="px-20 py-10 prose prose-lg lg:py-20 sm:prose-xl md:prose-2xl max-w-none md:px-40 lg:px-80">
+        <article className="py-10 prose prose-lg px-14 lg:py-20 sm:prose-xl md:prose-2xl max-w-none md:px-36 lg:px-64 xl:px-72 2xl:px-80">
           <RenderedComponent />
         </article>
       </Layout>
