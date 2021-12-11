@@ -1,4 +1,4 @@
-import { FaEnvelope, FaBlog } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
 import { SiFigma, SiGithub, SiLinkedin } from "react-icons/si";
 
 const socials = [
@@ -8,13 +8,6 @@ const socials = [
       <SiGithub className="w-full h-full transition-opacity duration-200 hover:opacity-75" />
     ),
     link: "https://github.com/arashnrim",
-  },
-  {
-    name: "blog",
-    icon: (
-      <FaBlog className="w-full h-full transition-opacity duration-200 hover:opacity-75" />
-    ),
-    link: "https://blog.arash.codes",
   },
   {
     name: "LinkedIn",
