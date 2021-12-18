@@ -26,6 +26,10 @@ const Placeholder = () => {
 };
 
 const Posts = ({ frontmatters }: PostsProps) => {
+  frontmatters.sort((a, b) => {
+    return new Date(b.date).valueOf() - new Date(a.date).valueOf();
+  });
+
   return (
     <section className="grid grid-cols-1 px-10 py-10 lg:grid-cols-2 lg:py-20 md:px-12 lg:px-20 gap-y-10 lg:gap-10">
       {frontmatters ? (
