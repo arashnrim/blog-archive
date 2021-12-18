@@ -1,7 +1,6 @@
-import { Frontmatter, calculatePostReadingTime } from "../utils/post-utils";
 import Link from "next/link";
 import { FaCalendar, FaClock, FaTag, FaTags } from "react-icons/fa";
-import { useMemo } from "react";
+import { calculatePostReadingTime, Frontmatter } from "../utils/post-utils";
 
 interface PostsProps {
   frontmatters: Frontmatter[];
@@ -28,7 +27,7 @@ const Placeholder = () => {
 
 const Posts = ({ frontmatters }: PostsProps) => {
   return (
-    <section className="grid grid-cols-1 px-10 py-10 lg:grid-cols-2 lg:py-20 md:px-12 lg:px-20 gap-y-10 lg:gap-y-0 lg:gap-x-10">
+    <section className="grid grid-cols-1 px-10 py-10 lg:grid-cols-2 lg:py-20 md:px-12 lg:px-20 gap-y-10 lg:gap-10">
       {frontmatters ? (
         frontmatters.map((frontmatter) => {
           const readingTime = frontmatter.words
