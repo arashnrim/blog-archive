@@ -48,10 +48,12 @@ const Posts = ({ frontmatters }: PostsProps) => {
                   <FaCalendar />
                   <p>{frontmatter.date}</p>
                 </span>
-                <span className="flex flex-row items-center space-x-2">
-                  <FaClock />
-                  <p>{readingTime} minutes</p>
-                </span>
+                {readingTime && (
+                  <span className="flex flex-row items-center space-x-2">
+                    <FaClock />
+                    <p>{readingTime} minutes</p>
+                  </span>
+                )}
                 {frontmatter.tags === undefined ? null : (
                   <span className="flex flex-row items-center space-x-2">
                     {frontmatter.tags.length > 1 ? <FaTags /> : <FaTag />}
