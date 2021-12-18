@@ -18,7 +18,7 @@ const Meta = ({
     <meta name="author" content={name} />
     <meta name="url" content={url} />
     <meta name="theme-color" content="#000000" />
-    {isBlogPost ? <meta name="robots" content="noindex" /> : <></>}
+    {isBlogPost && <meta name="robots" content="nofollow" />}
 
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
