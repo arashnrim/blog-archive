@@ -1,9 +1,10 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
-  mode: "jit",
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -12,7 +13,7 @@ module.exports = {
         mono: ["'JetBrains Mono'"],
       },
       colors: {
-        gray: colors.trueGray,
+        gray: colors.neutral,
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -85,9 +86,6 @@ module.exports = {
         },
       }),
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [require("@tailwindcss/typography")],
 };
