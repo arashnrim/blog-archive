@@ -15,7 +15,7 @@ module.exports = {
       colors: {
         gray: colors.neutral,
       },
-      typography: (theme) => ({
+      typography: {
         DEFAULT: {
           css: {
             color: "#FFF",
@@ -84,7 +84,7 @@ module.exports = {
             },
           },
         },
-      }),
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],
