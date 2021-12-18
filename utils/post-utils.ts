@@ -1,4 +1,6 @@
 import matter from "gray-matter";
+import fs from "fs";
+import path from "path";
 
 export interface Frontmatter {
   date: string;
@@ -9,17 +11,33 @@ export interface Frontmatter {
   words?: number;
 }
 
-export const fetchPostFrontmatter = (
-  unprocessedContent: string,
-  file: string
-) => {
-  const frontmatter = matter(unprocessedContent).data;
-  frontmatter["slug"] = "/" + file.replace(".mdx", "");
-  const tags = frontmatter["tags"];
-  typeof tags === "string"
-    ? (frontmatter["tags"] = tags.split(","))
-    : (frontmatter["tags"] = tags);
-  return frontmatter;
+export const fetchAllPosts = (dateOptions?: object) => {
+  const files = fs.readdirSync(path.join(process.cwd(), "posts"), "utf-8");
+  const postFrontmatters = files.map((file) => {
+    const unprocessedContent = fs.readFileSync(
+      path.join(process.cwd(), "posts", file),
+      "utf-8"
+    );
+    const frontmatter = matter(unprocessedContent).data;
+    frontmatter["slug"] = "/" + file.replace(".mdx", "");
+    const unparsedDate = new Date(frontmatter["date"]);
+    const defaultDateOptions = {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    };
+    frontmatter["date"] = unparsedDate.toLocaleDateString(
+      "en-SG",
+      dateOptions ? dateOptions : defaultDateOptions
+    );
+    const tags = frontmatter["tags"];
+    typeof tags === "string"
+      ? (frontmatter["tags"] = tags.split(","))
+      : (frontmatter["tags"] = tags);
+    return frontmatter;
+  });
+
+  return postFrontmatters;
 };
 
 export const calculatePostReadingTime = (numberOfWords: number) => {

@@ -1,12 +1,9 @@
-import fs from "fs";
-import matter from "gray-matter";
 import type { NextPage } from "next";
 import { GetStaticProps } from "next";
-import path from "path";
 import Hero from "../components/Hero";
 import Layout from "../components/Layout";
 import Posts from "../components/Posts";
-import { Frontmatter } from "../utils/post-utils";
+import { fetchAllPosts, Frontmatter } from "../utils/post-utils";
 
 interface IndexProps {
   frontmatters: Frontmatter[];
@@ -22,20 +19,7 @@ const Index: NextPage<IndexProps> = ({ frontmatters }: IndexProps) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const files = fs.readdirSync(path.join(process.cwd(), "posts"), "utf-8");
-  const postFrontmatters = files.map((file) => {
-    const unprocessedContent = fs.readFileSync(
-      path.join(process.cwd(), "posts", file),
-      "utf-8"
-    );
-    const frontmatter = matter(unprocessedContent).data;
-    frontmatter["slug"] = "/" + file.replace(".mdx", "");
-    const tags = frontmatter["tags"];
-    typeof tags === "string"
-      ? (frontmatter["tags"] = tags.split(","))
-      : (frontmatter["tags"] = tags);
-    return frontmatter;
-  });
+  const postFrontmatters = fetchAllPosts();
 
   return {
     props: {

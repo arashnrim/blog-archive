@@ -1,10 +1,8 @@
-import fs from "fs";
 import { GetStaticPaths, GetStaticProps } from "next";
-import path from "path";
+import { FiChevronLeft } from "react-icons/fi";
 import Layout from "../../components/Layout";
 import Posts from "../../components/Posts";
-import { fetchPostFrontmatter, Frontmatter } from "../../utils/post-utils";
-import { FiChevronLeft } from "react-icons/fi";
+import { fetchAllPosts, Frontmatter } from "../../utils/post-utils";
 
 interface TagProps {
   tag: string;
@@ -35,18 +33,11 @@ const Tag = ({ tag, posts }: TagProps) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   let storedTags: string[] = [];
-  const files = fs.readdirSync(path.join(process.cwd(), "posts"), "utf-8");
-  files.map((file) => {
-    const unprocessedContent = fs.readFileSync(
-      path.join(process.cwd(), "posts", file),
-      "utf-8"
-    );
-    const frontmatter = fetchPostFrontmatter(unprocessedContent, file);
-    const tags: string[] = frontmatter.tags;
+  const posts = fetchAllPosts();
+  posts.forEach((post) => {
+    const tags: string[] = post.tags;
     tags.forEach((tag) => {
-      if (!storedTags.includes(tag)) {
-        storedTags.push(tag);
-      }
+      !storedTags.includes(tag) && storedTags.push(tag);
     });
   });
 
@@ -65,17 +56,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const tag = params!.tag as string;
   let storedPosts: object[] = [];
-  const files = fs.readdirSync(path.join(process.cwd(), "posts"), "utf-8");
-  files.map((file) => {
-    const unprocessedContent = fs.readFileSync(
-      path.join(process.cwd(), "posts", file),
-      "utf-8"
-    );
-    const frontmatter = fetchPostFrontmatter(unprocessedContent, file);
-    const tags: string[] = frontmatter.tags;
-    if (tags.includes(tag)) {
-      storedPosts.push(frontmatter);
-    }
+  const posts = fetchAllPosts();
+  posts.forEach((post) => {
+    const tags: string[] = post.tags;
+    tags.includes(tag) && storedPosts.push(post);
   });
 
   return {
