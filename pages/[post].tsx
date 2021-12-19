@@ -42,10 +42,12 @@ const Post: NextPage<PostProps> = ({ frontmatter, code, slug }: PostProps) => {
             <FaCalendar title="Date written" aria-label="Reading time" />
             <p>{frontmatter.date}</p>
           </span>
-          <span className="flex items-center space-x-2 sm:text-xl">
-            <FaClock title="Reading time" aria-label="Reading time" />
-            <p>{readingTime} minutes</p>
-          </span>
+          {readingTime && (
+            <span className="flex items-center space-x-2 sm:text-xl">
+              <FaClock title="Reading time" aria-label="Reading time" />
+              <p>{readingTime} minutes</p>
+            </span>
+          )}
         </section>
         <article className="py-10 prose prose-lg px-14 lg:py-20 sm:prose-xl md:prose-2xl max-w-none md:px-36 lg:px-64 xl:px-72 2xl:px-80">
           <RenderedComponent />
