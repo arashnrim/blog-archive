@@ -1,11 +1,16 @@
 {
   "extends": [
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "plugin:mdx/recommended"
   ],
   "plugins": [
     "prettier"
   ],
   "rules": {
     "prettier/prettier": "error"
+  },
+  "settings": {
+    "mdx/code-blocks": true,
+    "mdx/language-mapper": {}
   }
 }

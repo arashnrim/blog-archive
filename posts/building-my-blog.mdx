@@ -9,7 +9,11 @@ words: 2226
 import Resource from "../components/Resource";
 import Prompt from "../components/Prompt";
 
-<Prompt title="Heads up!" status="warn">I expect the post ahead to be long for most people, and details can get very technical. If you are not as interested in learning more about the details of how I made my blog, this post may not be for you!</Prompt>
+<Prompt title="Heads up!" status="warn">
+  I expect the post ahead to be long for most people, and details can get very
+  technical. If you are not as interested in learning more about the details of
+  how I made my blog, this post may not be for you!
+</Prompt>
 
 Ever since I got introduced to front-end web development early this year, I've come across blogs by many developers with varying purposes. Some were to have a platform to muse on the experiences they've had, while others (especially fellow developers!) would create blog posts to share little code tips — like snippets, tutorials, and more useful things — to pass on to other developers looking for some help.
 
@@ -30,7 +34,14 @@ This certainly isn't a definitive guide to making your own blog, and I doubt tha
 
 This website is powered by [Next.js](https://nextjs.org), one of the most popular React frameworks utilised by developers for the front-end web development of websites at the time of writing. My main goal was to use a product in the [Jamstack](https://jamstack.org/) architecture to leverage performance, security, and a better experience when developing. Next.js is just one of the many members of Jamstack, and there are many more that you may wish to consider for yourself.
 
-<Resource links={[{ title: "Jamstack: Static Site Generators", link: "https://jamstack.org/generators" }]} />
+<Resource
+  links={[
+    {
+      title: "Jamstack: Static Site Generators",
+      link: "https://jamstack.org/generators",
+    },
+  ]}
+/>
 
 # Part 1: Setting Up Styling
 
@@ -50,7 +61,15 @@ npx tailwindcss init -p
 
 Next up, you'll need to add Tailwind CSS to your framework; at this point, it is assumed that Next.js is being used. For other frameworks or methods, see the resource below.
 
-<Resource links={[{ title: "Tailwind CSS: Installation", link: "https://tailwindcss.com/docs/installation" }]} customBody="For detailed instructions on installing Tailwind CSS, read here:" />
+<Resource
+  links={[
+    {
+      title: "Tailwind CSS: Installation",
+      link: "https://tailwindcss.com/docs/installation",
+    },
+  ]}
+  customBody="For detailed instructions on installing Tailwind CSS, read here:"
+/>
 
 In `styles/global.css`, prepend the following:
 
@@ -64,7 +83,10 @@ Once done, things should be all good to go! Try using a Tailwind CSS style somew
 
 # Part 2: Reading and Rendering Markdown
 
-<Prompt title="Heads up!" status="warn">This section assumes that Next.js is the framework used to develop the website.</Prompt>
+<Prompt title="Heads up!" status="warn">
+  This section assumes that Next.js is the framework used to develop the
+  website.
+</Prompt>
 
 To me, this was the most daunting challenge in creating a blog. I needed a way to:
 
@@ -82,11 +104,22 @@ Dynamic routes in Next.js require `getStaticPaths` to know which paths to pre-re
 
 `getStaticPaths` should be complemented with `getStaticProps` to fetch and render different data for different pages.
 
-<Resource links={[
-    { title: "Next.js: Dynamic Routes", link: "https://nextjs.org/docs/routing/dynamic-routes" },
-    { title: "Next.js: getStaticPaths", link: "https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation" },
-    { title: "Next.js: getStaticProps", link: "https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation" }
-]} />
+<Resource
+  links={[
+    {
+      title: "Next.js: Dynamic Routes",
+      link: "https://nextjs.org/docs/routing/dynamic-routes",
+    },
+    {
+      title: "Next.js: getStaticPaths",
+      link: "https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation",
+    },
+    {
+      title: "Next.js: getStaticProps",
+      link: "https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation",
+    },
+  ]}
+/>
 
 To create a dynamic route, I created a file somewhere in the `pages/` directory. It could be in a subdirectory to your preference, but the link will be created at `example.com/subdirectory/post` instead of `example.com/post` if created at `pages/` directory. The name of this file has to be surrounded with square brackets — for instance, the file I created was `[post].tsx`. In this case, Next.js will consider `post` to be a special value that I'll come to see later on.
 
@@ -94,11 +127,11 @@ For now, I made an 'empty' page with just the basic of things needed:
 
 ```ts
 // [post].tsx
-import type { NextPage } from "next"
+import type { NextPage } from "next";
 
 const Post = () => {
-    return <main>Hello, world!</main>;
-}
+  return <main>Hello, world!</main>;
+};
 
 export default Post;
 ```
@@ -115,7 +148,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     },
   }));
 
-  return { // 3
+  return {
+    // 3
     paths,
     fallback: false,
   };
@@ -155,17 +189,23 @@ As a breakdown for the code above:
     }
     ```
 
-3. For `getStaticPaths` to work, `paths` and another value — `fallback` — needs to be returned. If `fallback` is false, a visitor will be redirected to the 404 page if no such path exists (for instance, if a visitor tries to access `example.com/something`). For more details on this, visit the `getStaticPaths` documentation in the resources above.
+3.  For `getStaticPaths` to work, `paths` and another value — `fallback` — needs to be returned. If `fallback` is false, a visitor will be redirected to the 404 page if no such path exists (for instance, if a visitor tries to access `example.com/something`). For more details on this, visit the `getStaticPaths` documentation in the resources above.
 
 Where `getStaticPaths` generates the paths to possible blog posts in advance, `getStaticProps` actually fetches, renders, and passes the rendered Markdown (as HTML) to the component.
 
 For my blog, I've settled to use mdx-bundler to compile and parse the Markdown into HTML. There are several other options to check out as well that you may wish to check out if you're interested in making a blog for yourself too. In essence, all options have the capability of turning your Markdown into HTML for React to render.
 
-<Resource links={[
+<Resource
+  links={[
     { title: "mdx-bundler", link: "https://github.com/kentcdodds/mdx-bundler" },
     { title: "Unified.js", link: "https://unifiedjs.com/" },
-    { title: "next-mdx-remote", link: "https://github.com/hashicorp/next-mdx-remote" }
-]} customBody="The resources below are some options for turning Markdown into HTML:" />
+    {
+      title: "next-mdx-remote",
+      link: "https://github.com/hashicorp/next-mdx-remote",
+    },
+  ]}
+  customBody="The resources below are some options for turning Markdown into HTML:"
+/>
 
 I've settled on mdx-bundler since it can render imports (e.g., if using a custom component, like I intend to do!). Additionally, it supports the plugins from the Unified.js collective and allows more functionality!
 
@@ -194,7 +234,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
   }); // 3
 
-  return { // 4
+  return {
+    // 4
     props: {
       frontmatter,
       code,
@@ -216,7 +257,8 @@ At this point, I'm getting a little closer to the end! Now, all I had to do was 
 ```ts
 import { FaCalendar } from "react-icons/fa";
 
-interface PostProps { // 1
+interface PostProps {
+  // 1
   frontmatter: Frontmatter;
   code: string;
 }
@@ -257,12 +299,26 @@ const Post: NextPage<PostProps> = ({ frontmatter, code }: PostProps) => {
 
    Additionally, I utilised Tailwind's typography plugin and used the `prose` class to have Tailwind automatically style the compiled HTML (from Markdown). Everything you see here is the result of that plugin!
 
-<Resource links={[
-    { title: "TypeScript: Interfaces", link: "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#interfaces" },
-    { title: "React: useMemo", link: "https://reactjs.org/docs/hooks-reference.html#usememo" },
-    { title: "MDX: Frontmatter", link: "https://mdxjs.com/guides/frontmatter/" },
-    { title: "Tailwind CSS: Typography Plugin", link: "https://tailwindcss.com/docs/plugins#typography" }
-]} />
+<Resource
+  links={[
+    {
+      title: "TypeScript: Interfaces",
+      link: "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#interfaces",
+    },
+    {
+      title: "React: useMemo",
+      link: "https://reactjs.org/docs/hooks-reference.html#usememo",
+    },
+    {
+      title: "MDX: Frontmatter",
+      link: "https://mdxjs.com/guides/frontmatter/",
+    },
+    {
+      title: "Tailwind CSS: Typography Plugin",
+      link: "https://tailwindcss.com/docs/plugins#typography",
+    },
+  ]}
+/>
 
 With all that done, I managed to get dynamic routes for my blog working!
 
@@ -361,9 +417,9 @@ The tags page is (partially) an accumulation of the things that have been done p
 
 - the use of dynamic routes (`pages/tags/[tag].tsx`);
 - the use of `getStaticPaths` and `getStaticProps` to:
-    1. allow Next.js to create the links to all the existing tags ahead of time;
-    2. fetch and parse the frontmatters of all posts; and
-    3. filter the frontmatters based on the current tag; and
+  1. allow Next.js to create the links to all the existing tags ahead of time;
+  2. fetch and parse the frontmatters of all posts; and
+  3. filter the frontmatters based on the current tag; and
 - the rendering of the grid of posts using `Posts`.
 
 # Conclusion
@@ -374,17 +430,50 @@ On the contrary, if there's anything that can be improved on in the way I develo
 
 If you are a developer looking to get started with a blog, all the best with everything! May your experience and journey be a positive one.
 
-<Resource links={[
-    { title: "Jamstack: Static Site Generators", link: "https://jamstack.org/generators" },
-    { title: "Tailwind CSS: Installation", link: "https://tailwindcss.com/docs/installation" },
-    { title: "Next.js: Dynamic Routes", link: "https://nextjs.org/docs/routing/dynamic-routes" },
-    { title: "Next.js: getStaticPaths", link: "https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation" },
-    { title: "Next.js: getStaticProps", link: "https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation" },
+<Resource
+  links={[
+    {
+      title: "Jamstack: Static Site Generators",
+      link: "https://jamstack.org/generators",
+    },
+    {
+      title: "Tailwind CSS: Installation",
+      link: "https://tailwindcss.com/docs/installation",
+    },
+    {
+      title: "Next.js: Dynamic Routes",
+      link: "https://nextjs.org/docs/routing/dynamic-routes",
+    },
+    {
+      title: "Next.js: getStaticPaths",
+      link: "https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation",
+    },
+    {
+      title: "Next.js: getStaticProps",
+      link: "https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation",
+    },
     { title: "mdx-bundler", link: "https://github.com/kentcdodds/mdx-bundler" },
     { title: "Unified.js", link: "https://unifiedjs.com/" },
-    { title: "next-mdx-remote", link: "https://github.com/hashicorp/next-mdx-remote" },
-    { title: "TypeScript: Interfaces", link: "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#interfaces" },
-    { title: "React: useMemo", link: "https://reactjs.org/docs/hooks-reference.html#usememo" },
-    { title: "MDX: Frontmatter", link: "https://mdxjs.com/guides/frontmatter/" },
-    { title: "Tailwind CSS: Typography Plugin", link: "https://tailwindcss.com/docs/plugins#typography" }
-]} customBody="This post has included the following resources:" />
+    {
+      title: "next-mdx-remote",
+      link: "https://github.com/hashicorp/next-mdx-remote",
+    },
+    {
+      title: "TypeScript: Interfaces",
+      link: "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#interfaces",
+    },
+    {
+      title: "React: useMemo",
+      link: "https://reactjs.org/docs/hooks-reference.html#usememo",
+    },
+    {
+      title: "MDX: Frontmatter",
+      link: "https://mdxjs.com/guides/frontmatter/",
+    },
+    {
+      title: "Tailwind CSS: Typography Plugin",
+      link: "https://tailwindcss.com/docs/plugins#typography",
+    },
+  ]}
+  customBody="This post has included the following resources:"
+/>
