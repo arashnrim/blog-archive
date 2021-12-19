@@ -6,7 +6,6 @@
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": "error",
-    "mdx/recommended": "warn"
+    "prettier/prettier": "error"
   }
 }
