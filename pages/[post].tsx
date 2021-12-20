@@ -1,15 +1,16 @@
 import fs from "fs";
 import { bundleMDX } from "mdx-bundler";
 import { getMDXComponent } from "mdx-bundler/client";
+import type { NextPage } from "next";
 import { GetStaticPaths, GetStaticProps } from "next";
 import path from "path";
 import { useMemo } from "react";
 import { FaCalendar, FaClock } from "react-icons/fa";
+import { AiOutlineSmile, AiOutlineFrown } from "react-icons/ai";
 import rehypePrism from "rehype-prism-plus";
 import Layout from "../components/Layout";
-import { Frontmatter } from "../utils/post-utils";
-import type { NextPage } from "next";
-import { calculatePostReadingTime } from "../utils/post-utils";
+import { calculatePostReadingTime, Frontmatter } from "../utils/post-utils";
+import Feedback from "../components/Feedback";
 
 interface PostProps {
   frontmatter: Frontmatter;
@@ -49,9 +50,12 @@ const Post: NextPage<PostProps> = ({ frontmatter, code, slug }: PostProps) => {
             </span>
           )}
         </section>
-        <article className="py-10 prose prose-lg px-14 lg:py-20 sm:prose-xl md:prose-2xl max-w-none md:px-36 lg:px-64 xl:px-72 2xl:px-80">
-          <RenderedComponent />
-        </article>
+        <section className="py-10 space-y-10 lg:py-20 px-14 md:px-36 lg:px-64 xl:px-72 2xl:px-80">
+          <article className="prose prose-lg sm:prose-xl md:prose-2xl max-w-none">
+            <RenderedComponent />
+          </article>
+          <Feedback />
+        </section>
       </Layout>
     </>
   );

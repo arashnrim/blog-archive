@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.0",
+    "deta": "^1.0.1",
     "esbuild": "^0.14.0",
     "gray-matter": "^4.0.3",
     "mdx-bundler": "^8.0.0",

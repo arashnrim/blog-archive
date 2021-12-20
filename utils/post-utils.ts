@@ -1,6 +1,7 @@
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
+import process from "process";
 
 export interface Frontmatter {
   date: string;
@@ -47,4 +48,12 @@ export const calculatePostReadingTime = (numberOfWords: number) => {
   seconds = Math.round(seconds);
 
   return Math.round(minutes + seconds / 60);
+};
+
+export const retrieveProjectKey = () => {
+  const projectKey = process.env.PROJECT_KEY;
+  if (projectKey === undefined) {
+    throw "PROJECT_KEY was not found in the environment variables. Have you pulled or updated or environment variables?";
+  }
+  return projectKey;
 };
