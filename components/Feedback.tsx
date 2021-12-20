@@ -1,3 +1,4 @@
+import { useRouter } from "next/dist/client/router";
 import { useState } from "react";
 import { AiOutlineSmile, AiOutlineFrown } from "react-icons/ai";
 
@@ -18,11 +19,13 @@ const Feedback = () => {
   const [buttonSelected, setButtonSelected] = useState("");
   const [feedback, setFeedback] = useState("");
   const [stored, setStored] = useState("false");
+  const router = useRouter();
 
   const submitFeedback = async () => {
     const data = {
       option: buttonSelected,
       feedback: feedback ? feedback : undefined,
+      post: router.asPath,
     };
 
     await fetch("/api/feedback", {

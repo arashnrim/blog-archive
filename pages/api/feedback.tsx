@@ -7,13 +7,13 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === "POST") {
-    const { option, feedback } = req.body;
+    const { option, feedback, post } = req.body;
     const projectKey = process.env.PROJECT_KEY;
     const database = Deta(projectKey).Base("feedback");
     const date = String(new Date());
 
     await database
-      .put({ option, feedback: feedback ? feedback : undefined, date })
+      .put({ option, feedback: feedback ? feedback : undefined, date, post })
       .then(() => res.status(200))
       .catch(() => res.status(500));
 

@@ -6,11 +6,10 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import path from "path";
 import { useMemo } from "react";
 import { FaCalendar, FaClock } from "react-icons/fa";
-import { AiOutlineSmile, AiOutlineFrown } from "react-icons/ai";
 import rehypePrism from "rehype-prism-plus";
+import Feedback from "../components/Feedback";
 import Layout from "../components/Layout";
 import { calculatePostReadingTime, Frontmatter } from "../utils/post-utils";
-import Feedback from "../components/Feedback";
 
 interface PostProps {
   frontmatter: Frontmatter;
