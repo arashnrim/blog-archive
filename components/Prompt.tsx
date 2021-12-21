@@ -34,7 +34,7 @@ const Prompt = ({ title, status, children }: PromptProps) => {
 
   return (
     <div
-      className={`border ${borderColor} ${promptBackground} bg-opacity-10 rounded-2xl p-5 my-[1.3333333em]`}
+      className={`border ${borderColor} ${promptBackground} bg-opacity-10 rounded-2xl p-5 my-[1.3333333em] space-y-2`}
     >
       {title && <h6>{title}</h6>}
       {children}
