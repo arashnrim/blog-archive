@@ -1,0 +1,44 @@
+---
+title: "My front-end tech stack"
+date: 16 January 2022
+description: A little sharing about what I use to write front-end code and build websites circa 2022.
+tags: code
+words: 704
+---
+My web dev journey thus far hasn't been 'the usual one' — I didn't exactly start out writing code in vanilla HTML, CSS, and JavaScript. Instead, I approached the field via Gatsby, the front-end framework. From there, I wrote most of the front-end code I'm familiar with in JSX (or TSX, if I'm using TypeScript). I researched and came across many ways to style — whether using vanilla CSS, Sass, or a utility framework like Bootstrap — but eventually settled on using Tailwind CSS.
+
+As you can probably tell, I'm probably a little better at writing React than vanilla code. This obviously has some drawbacks: for one, when going back to the basics, I might forget that some abilities are no longer available, and I might have to figure a new way to deal with that. Even so, it's still an exciting way to learn something new. Furthermore, these frameworks often remove the need for repeated code (like always starting with `<html>` per page) to focus on writing content!
+
+# My comfortable front-end stack
+
+When it comes to a new front-end project, the stack that I always return to include:
+
+- [Next.js](https://nextjs.org) — a front-end framework developed by Vercel with support for static-site generation (SSG), server-side rendering (SSR), and even incremental static regeneration (ISR). I'll admit, I don't have the entire framework in my toolbox just yet, but I have the basics covered!
+- [Tailwind CSS](https://tailwindcss.com) — a utility-based CSS framework that provides styles accessible by classes. This makes it easier to style inline and handles advanced concepts like screen responsiveness and states so that you don't have to. With their recently-announced (relative to the time of writing) just-in-time update, the support for arbitrary values makes it even better to use!
+
+With just these two alone, I can create performant yet beautiful and standardised websites without a large amount of complexity built-in. What's more, with built-in features that vanilla code doesn't implement (e.g., SSG, SSR, and ISR for Next.js; screen responsiveness for Tailwind), it makes writing code much easier!
+
+# The general flow of making a website
+
+To make it easier to get started, I created my own version of a template (based on the official Next.js template but tweaked it here and there) to help. Snarkily titled "What's Next?", it features a few changes to the original template:
+
+- The project is initialised with TypeScript, allowing me to depend on stricter rules to prevent more errors;
+- The project is configured with ESLint and Prettier, which work together to lint and format the code;
+- The project is configured with Husky to run the lint and format commands during every commit;
+-The `berry` version of Yarn is utilised instead of classic Yarn, though Vercel might take issue with that; and
+Vercel and Linguist (the tool GitHub uses to analyse repository languages) are respectively configured for a better (personal) experience.
+
+For more information, feel free to [take a look at my template](https://github.com/arashnrim/whats-next)!
+
+Creating a template that's personalised to you is a great thing to have in the long term. Sure, you'll have to manually do the maintenance work from time to time, but it pays off! You can just use it as a template whenever you need to create a website. GitHub directly supports template repositories, and it's convenient to have a "Use this template" button to get started quickly with creating. I'd recommend making one for yourself!
+
+From there, I will install and set up Tailwind CSS. Once done, I can jump right into writing content without hesitation or a minute more of setup!
+
+# Exploring new frontiers
+
+With all that said, is this where my experience with the front end stops is? Definitely not, I'd argue! There's a lot more new things to try out there; some include:
+
+- frameworks — a few that I have my eyes on include [Astro](https://astro.build), [Svelte](https://svelte.dev), and [SolidJS](https://solidjs.com); and
+- methods — as mentioned in the introduction, I still have yet to be comfortable with vanilla HTML, CSS, and JavaScript.
+
+I also still have a long way to go for web development; front-end is just the tip of the iceberg! I'm interested in having a hand at writing back-end code and using databases, writing APIs, and so on. All exciting stuff that I hope to learn sometime soon!
