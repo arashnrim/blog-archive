@@ -44,15 +44,15 @@ const Socials = () => (
           social.name === "email"
             ? "Contact via email"
             : social.name === "blog"
-              ? "Go to blog"
-              : `Go to ${social.name} profile`
+            ? "Go to blog"
+            : `Go to ${social.name} profile`
         }
         aria-label={
           social.name === "email"
             ? "Contact via email"
             : social.name === "blog"
-              ? "Go to blog"
-              : `Go to ${social.name} profile`
+            ? "Go to blog"
+            : `Go to ${social.name} profile`
         }
         key={social.name}
       >
