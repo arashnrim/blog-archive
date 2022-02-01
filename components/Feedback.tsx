@@ -64,11 +64,10 @@ const Feedback = () => {
                 }
               >
                 <div
-                  className={`flex flex-row items-center p-5 space-x-2 text-lg sm:text-xl transition-colors duration-200 border ${
-                    buttonSelected === option.key
-                      ? "border-blue-400"
-                      : "border-gray-700"
-                  } rounded-lg hover:border-blue-400`}
+                  className={`flex flex-row items-center p-5 space-x-2 text-lg sm:text-xl transition-colors border ${buttonSelected === option.key
+                    ? "border-blue-400"
+                    : "border-gray-700"
+                    } rounded-lg hover:border-blue-400`}
                 >
                   {option.icon}
                   <p>{option.text}</p>
@@ -77,9 +76,8 @@ const Feedback = () => {
             ))}
           </div>
           <div
-            className={`${
-              !buttonSelected ? "hidden" : ""
-            } space-y-5 text-lg sm:text-xl`}
+            className={`${!buttonSelected ? "hidden" : ""
+              } space-y-5 text-lg sm:text-xl`}
           >
             <span className="space-y-2">
               <p>Would you like to give some feedback?</p>

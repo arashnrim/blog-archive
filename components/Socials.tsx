@@ -5,28 +5,28 @@ const socials = [
   {
     name: "GitHub",
     icon: (
-      <SiGithub className="w-full h-full transition-opacity duration-200 hover:opacity-75" />
+      <SiGithub className="w-full h-full transition-opacity hover:opacity-75" />
     ),
     link: "https://github.com/arashnrim",
   },
   {
     name: "LinkedIn",
     icon: (
-      <SiLinkedin className="w-full h-full transition-opacity duration-200 hover:opacity-75" />
+      <SiLinkedin className="w-full h-full transition-opacity hover:opacity-75" />
     ),
     link: "https://linkedin.com/in/arashnrim",
   },
   {
     name: "Figma",
     icon: (
-      <SiFigma className="w-full h-full transition-opacity duration-200 hover:opacity-75" />
+      <SiFigma className="w-full h-full transition-opacity hover:opacity-75" />
     ),
     link: "https://figma.com/@arashnrim",
   },
   {
     name: "email",
     icon: (
-      <FaEnvelope className="w-full h-full transition-opacity duration-200 hover:opacity-75" />
+      <FaEnvelope className="w-full h-full transition-opacity hover:opacity-75" />
     ),
     link: "mailto:hello@arashnrim.me",
   },
@@ -44,15 +44,15 @@ const Socials = () => (
           social.name === "email"
             ? "Contact via email"
             : social.name === "blog"
-            ? "Go to blog"
-            : `Go to ${social.name} profile`
+              ? "Go to blog"
+              : `Go to ${social.name} profile`
         }
         aria-label={
           social.name === "email"
             ? "Contact via email"
             : social.name === "blog"
-            ? "Go to blog"
-            : `Go to ${social.name} profile`
+              ? "Go to blog"
+              : `Go to ${social.name} profile`
         }
         key={social.name}
       >
