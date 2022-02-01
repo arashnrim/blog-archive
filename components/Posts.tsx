@@ -39,15 +39,7 @@ const Posts = ({ frontmatters }: PostsProps) => {
             : undefined;
           return (
             <Link href={frontmatter.slug!} key={frontmatter.title} passHref>
-              <div className="p-10 space-y-2 transition-colors duration-200 border border-gray-700 cursor-pointer hover:border-blue-400 rounded-2xl">
-                <h2 className="text-4xl font-bold font-heading">
-                  {frontmatter.title}
-                </h2>
-                {frontmatter.description ? (
-                  <p className="sm:text-lg md:text-xl">
-                    {frontmatter.description}
-                  </p>
-                ) : null}
+                <h2 className="text-4xl">{frontmatter.title}</h2>
                 <span className="flex flex-row items-center space-x-2">
                   <FaCalendar />
                   <p>{frontmatter.date}</p>

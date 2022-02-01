@@ -43,7 +43,7 @@ const Feedback = () => {
     <section className="space-y-5" id="feedback">
       {stored === "true" ? (
         <div className="p-5 text-lg border border-gray-700 rounded-lg sm:text-xl">
-          <p className="font-bold">Thank you!</p>
+          <p>Thank you!</p>
           <p>
             Your feedback has been sent successfully. I view feedback as
             something valuable, so I greatly appreciate you taking the time!
@@ -82,7 +82,7 @@ const Feedback = () => {
             } space-y-5 text-lg sm:text-xl`}
           >
             <span className="space-y-2">
-              <p className="font-bold">Would you like to give some feedback?</p>
+              <p>Would you like to give some feedback?</p>
               <p>
                 You mentioned that{" "}
                 {buttonSelected === "liked"
