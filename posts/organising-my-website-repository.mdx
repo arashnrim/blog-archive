@@ -1,0 +1,183 @@
+---
+title: Organising my website's repository
+date: 1 February 2022
+description: Learn more about why and how I changed how I organised my website's repository on GitHub.
+tags: code,learning log
+words: 1347
+---
+
+My website is currently at its third iteration and has a unique design that I'm comfortable with. Before that, there were two other iterations — made from a boilerplate template from HTML5 UP. I try to make sure that the content in those (even since the beginning) was organised enough and easy to find; I've worked quite a bit to get where I am today with the website!
+
+# How things were
+
+With that said, though, I'd argue that the organisation of the websites' source code — that is, on GitHub — weren't exactly that up-to-par as how I'd like it. Initially, since I had to rewrite my website from scratch, I'd figure that splitting the third iteration from the other two in a completely separate repository was the way to go. I'd named the two repositories `website` and `website-archive`; the former held the source code to the current iteration, and the latter the older ones.
+
+The `website` repository was simple enough. There was nothing much to do but have the source code for the current iteration there. As for the `website-archive` repository, though, that was a little complicated. I had envisioned some form of semantic versioning the different iterations of my website followed — a v1.0, v1.1, then v2.0 for the next iteration and so on. I figured that the best way to make this happen was to split up each version into its own separate branch. This left me with a repository with eight branches; of them, some had entirely unrelated histories with each other.
+
+# The thought of changing
+
+The thought of changing the way things had occurred to me when I started thinking that there must be another way to organise the source code. I didn't really want two separate repositories and merged the two into one. A few questions that I had regarding this change included:
+
+- **How easy will it be?** Considering that some branches had unrelated histories, I'd be concerned if there was a merge conflict of some sort with the files.
+- **Will I lose anything?** I was worried that some files might get overwritten — especially with the first two iterations, where the file names may be the exact same.
+- **How can I retain the semantic versioning of the iterations?** I hadn't had a clue about this when I started, but I soon learned about tagging in Git that does exactly what I hoped it'd do.
+- **Will this mess the details up?** I'd describe myself as perfectionistic; I want to get everything right when I do this. I was concerned about the minor details, like the contributions graph on GitHub and how Linguist parsed the repository's languages.
+
+It took a while to experiment and eventually get to where things are now. Since this is quite a significant operation with Git, and I'm still learning how to use it better every day, why not create a learning log while I'm at it?
+
+# Starting to change
+
+## Merging histories
+
+The first thing I had to deal with was merging the different branches. I had anticipated this to be the most complicated bit of the operation. Still, I quickly realised that that wasn't really the case when doing it.
+
+I began by creating a new orphan branch that starts at a different root:
+
+```shell
+git checkout --orphan main
+```
+
+The first thing I did was look at the branches available to me.
+
+```shell
+git branch -a
+```
+```
+* main
+  remote/origin/HEAD -> origin/v2.1
+  remotes/origin/v1.0
+  remotes/origin/v1.1
+  remotes/origin/v1.2
+  remotes/origin/v1.3
+  remotes/origin/v2.0
+  remotes/origin/v2.1
+  remotes/origin/v2-projects
+```
+
+That's quite a lot of branches! I figured that the best way to tackle this was to work from the back up — in other words, to work from `v1.0` to the latest version. After a quick `git checkout` — a command to switch between branches — I can get started to `v1.0`.
+
+I figured the best way to ensure that each iteration was isolated was to have a folder for each version. Seeing that the source code for `v1.0` was all in the root directory:
+
+```
+/website
+├── index.html
+├── assets
+│   └── ...
+├── ...
+└── ...
+```
+
+I moved all the files into a directory I created named `v1`. Now, the root directory looks a little like this:
+
+```
+/website
+├── v1
+│   ├── index.html
+│   ├── assets
+│   │   └── ...
+│   ├── ...
+│   └── ...
+```
+
+This would continue to be the pattern I went for the other iterations. I went ahead and created a commit for this change:
+
+```shell
+git add . && git commit -S -m "..."
+```
+
+> **A tip or two**
+>
+> The `-S` flag passed onto the `git commit` command signs the commit with a GPG key I set up. This verifies that your commit is *really* made by you!
+
+And that was for `v1.0`! Moving on to `v1.1`, I decided to try merging the two branches just to see what might happen:
+
+```shell
+git merge v1.1
+```
+```
+CONFLICT (file location): <new file 1> added in v1.1 inside a directory that was renamed in HEAD, suggesting it should perhaps be moved to v1/<new file 1>.
+CONFLICT (file location): <new file 2> added in v1.1 inside a directory that was renamed in HEAD, suggesting it should perhaps be moved to v1/<new file 2>.
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+Huh, this was interesting! It appears that Git noticed that I had moved the files to `v1`. Now that I've added these two new files into `v1.1`, Git suggests moving the new files into the `v1` directory while preserving their location. That's pretty smart.
+
+To resolve, I accepted Git's suggestion by adding everything and creating a commit for the change as I've done before.
+
+Things were relatively smooth until I reached `v2.0`, where I encountered a slight issue. Since the file names were the same as the previous iteration, Git suggests merging the changes into the `v1` directory. This wasn't what I had in mind!
+
+I aborted the merge and moved the `v1` directory to another location to fix this. I then merged the changes; Git recreated another folder named `v1`. This folder, though, had the source code for `v2.0`. I renamed this `v1` into `v2`, then returned the `v1` directory. Now, I had things the way I wanted. Granted, I could've done this in a way better than the way I did, but it works! Now, the root directory looks like this:
+
+```
+/website
+├── v1
+│   ├── index.html
+│   ├── assets
+│   │   └── ...
+│   ├── ...
+│   └── ...
+├── v2
+│   ├── index.html
+│   ├── assets
+│   │   └── ...
+│   ├── ...
+│   └── ...
+```
+
+The merging of the other `v2.*` branches continued as usual. Git picked up that the `v2` directory was more similar to them than `v1`, so started suggesting that directory. How neat!
+
+## Combining `v3.0`
+
+This deserved its own category since it involves connecting the `website` repository and pulling. I'd done this before, so I was a little familiar with it. Nevertheless, I was still a little hesitant just in case things went awry.
+
+First, I added the `website` repository as a different remote; that way, I'll be able to fetch and pull from there:
+
+```shell
+git origin add current https://github.com/arashnrim/website
+```
+
+Afterwards, I fetched the remote and made checked out a branch:
+
+```shell
+git fetch current
+git checkout -b v3.0 current/main
+```
+
+Now that the `v3.0` branch is created, I can merge the changes the same way I've done before. The only difference is that the files of this are different (since I made this iteration from the ground up with Next.js). This means that Git probably won't associate these files with the `v2` directory, so I'll just move them over into `v3` quickly.
+
+Afterwards, to clean up, I can delete the `v3.0` branch and the `current` remote:
+
+```shell
+git branch -d v3.0
+git remote remove current
+```
+
+## Tag, you're it!
+
+I posed a question to ask how I might still incorporate the semantic versioning thing, and someone recommended Git tagging. Thanks to them, I took a look at that!
+
+I first began by collecting the commit identifiers of the last commit for each version. Afterwards, I created a tag by pointing to these commits:
+
+```shell
+git tag -s <version number>
+```
+
+Once I've created the tags, I can push them to GitHub. Since I use the `fish` shell, I can use its `for...end` operator to loop through each tag. How neat!
+
+```
+for tag in (git tag)
+	git push origin $tag
+end
+```
+
+# The result
+
+The result now is [the repository you see today](https://github.com/arashnrim/website)! All the commits have been combined into a singular branch. Since `main` is set as the default branch, a bonus is that all these commits appear in GitHub's contributions graph.
+
+It's neat that [the tags](https://github.com/arashnrim/website/tags) are also prominent, and you can simply download a copy of the source code from the point of the commit.
+
+# Conclusion
+
+Case in point: is this the best way to do things? Probably not. At the time that I did this, though, it did make sense to do what I did. It's essential to learn and grow from the things you do — experiences and mistakes alike — so I think it's appropriate that this is a learning log!
+
+This post sure was technical, but I'm interested to hear what you think! If there's anything better to be done, my email or the feedback form below is always open. Thank you for reading if you've come this far!
