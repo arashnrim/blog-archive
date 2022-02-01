@@ -6,32 +6,18 @@
 
 @layer base {
     @font-face {
-        font-family: "Clash Display";
+    font-family: "HK Grotesk";
         font-display: swap;
         font-weight: 400;
-        src: url("../public/fonts/ClashDisplay-Regular.woff2") format("woff2");
-        src: url("../public/fonts/ClashDisplay-Regular.woff") format("woff");
+    src: url("../public/fonts/HKGrotesk-Regular.woff2") format("woff2");
+    src: url("../public/fonts/HKGrotesk-Regular.woff") format("woff");
     }
     @font-face {
-        font-family: "Clash Display";
+    font-family: "HK Grotesk";
         font-display: swap;
-        font-weight: 600;
-        src: url("../public/fonts/ClashDisplay-Semibold.woff2") format("woff2");
-        src: url("../public/fonts/ClashDisplay-Semibold.woff") format("woff");
-    }
-    @font-face {
-        font-family: "Inter";
-        font-display: swap;
-        font-weight: 400;
-        src: url("../public/fonts/Inter-Regular.woff2") format("woff2");
-        src: url("../public/fonts/Inter-Regular.woff") format("woff");
-    }
-    @font-face {
-        font-family: "Inter";
-        font-display: swap;
-        font-weight: 700;
-        src: url("../public/fonts/Inter-Bold.woff2") format("woff2");
-        src: url("../public/fonts/Inter-Bold.woff") format("woff");
+    font-weight: 800;
+    src: url("../public/fonts/HKGrotesk-ExtraBold.woff2") format("woff2");
+    src: url("../public/fonts/HKGrotesk-ExtraBold.woff") format("woff");
     }
     @font-face {
         font-family: "JetBrains Mono";
