@@ -7,11 +7,13 @@ const options = [
     icon: <AiOutlineSmile />,
     text: "Liked the post?",
     key: "liked",
+    hover: "border-blue-400"
   },
   {
     icon: <AiOutlineFrown />,
     text: "Didn't like the post?",
     key: "disliked",
+    hover: "border-red-400"
   },
 ];
 
@@ -65,9 +67,9 @@ const Feedback = () => {
               >
                 <div
                   className={`flex flex-row items-center p-5 space-x-2 text-lg sm:text-xl transition-colors border ${buttonSelected === option.key
-                    ? "border-blue-400"
+                    ? option.hover
                     : "border-gray-700"
-                    } rounded-lg hover:border-blue-400`}
+                    } rounded-lg hover:${option.hover}`}
                 >
                   {option.icon}
                   <p>{option.text}</p>
@@ -97,7 +99,7 @@ const Feedback = () => {
             <button
               type="submit"
               onClick={() => submitFeedback()}
-              className="px-5 py-2 border border-gray-700 rounded-lg hover:border-blue-400"
+              className={`px-5 py-2 border border-gray-700 rounded-lg hover:border-white`}
             >
               Submit
             </button>
@@ -107,8 +109,9 @@ const Feedback = () => {
             </p>
           </div>
         </>
-      )}
-    </section>
+      )
+      }
+    </section >
   );
 };
 
