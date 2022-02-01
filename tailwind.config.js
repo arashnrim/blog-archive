@@ -14,46 +14,6 @@ module.exports = {
       colors: {
         gray: colors.neutral,
       },
-      typography: {
-        DEFAULT: {
-          css: {
-            h2: {
-              fontFamily: "'HK Grotesk'",
-              fontWeight: "700",
-              hyphens: "auto",
-              wordBreak: "break-word",
-            },
-            h3: {
-              fontFamily: "'HK Grotesk'",
-              fontWeight: "700",
-              hyphens: "auto",
-              wordBreak: "break-word",
-            },
-            h4: {
-              fontFamily: "'HK Grotesk'",
-              fontWeight: "700",
-              hyphens: "auto",
-              wordBreak: "break-word",
-            },
-            h5: {
-              fontFamily: "'HK Grotesk'",
-              fontWeight: "700",
-              hyphens: "auto",
-              wordBreak: "break-word",
-            },
-            h6: {
-              fontFamily: "'HK Grotesk'",
-              fontWeight: "700",
-              hyphens: "auto",
-              wordBreak: "break-word",
-            },
-            code: {
-              fontFamily: "'JetBrains Mono'",
-              wordBreak: "break-word",
-            },
-          },
-        },
-      },
     },
   },
   plugins: [require("@tailwindcss/typography")],
