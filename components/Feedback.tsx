@@ -7,13 +7,11 @@ const options = [
     icon: <AiOutlineSmile />,
     text: "Liked the post?",
     key: "liked",
-    hover: "border-blue-400",
   },
   {
     icon: <AiOutlineFrown />,
     text: "Didn't like the post?",
     key: "disliked",
-    hover: "border-red-400",
   },
 ];
 
@@ -66,11 +64,10 @@ const Feedback = () => {
                 }
               >
                 <div
-                  className={`flex flex-row items-center p-5 space-x-2 text-lg sm:text-xl transition-colors border ${
-                    buttonSelected === option.key
-                      ? option.hover
-                      : "border-gray-700"
-                  } rounded-lg hover:${option.hover}`}
+                  className={`flex flex-row items-center p-5 space-x-2 text-lg sm:text-xl transition-colors border ${buttonSelected === option.key
+                    ? "border-white"
+                    : "border-gray-700"
+                    } rounded-lg hover:border-white`}
                 >
                   {option.icon}
                   <p>{option.text}</p>
@@ -79,9 +76,8 @@ const Feedback = () => {
             ))}
           </div>
           <div
-            className={`${
-              !buttonSelected ? "hidden" : ""
-            } space-y-5 text-lg sm:text-xl`}
+            className={`${!buttonSelected ? "hidden" : ""
+              } space-y-5 text-lg sm:text-xl w-full`}
           >
             <span className="space-y-2">
               <p>Would you like to give some feedback?</p>
