@@ -6,7 +6,6 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import path from "path";
 import { useMemo } from "react";
 import { FaCalendar, FaClock } from "react-icons/fa";
-import rehypePrism from "rehype-prism-plus";
 import Feedback from "../components/Feedback";
 import Layout from "../components/Layout";
 import { calculatePostReadingTime, Frontmatter } from "../utils/post-utils";
@@ -49,8 +48,8 @@ const Post: NextPage<PostProps> = ({ frontmatter, code, slug }: PostProps) => {
             </span>
           )}
         </section>
-        <section className="py-20 space-y-10 px-10 md:px-20 lg:px-40">
-          <article className="prose prose-lg text-white prose-invert sm:prose-xl md:prose-2xl">
+        <section className="px-10 py-20 space-y-10 md:px-20 lg:px-40">
+          <article className="prose prose-lg text-white prose-invert sm:prose-xl md:prose-2xl prose-pre:bg-gray-900">
             <RenderedComponent />
           </article>
           <Feedback />
@@ -100,7 +99,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { code, frontmatter } = await bundleMDX({
     source: unprocessedContent,
     xdmOptions(options) {
-      options.rehypePlugins = [...(options.rehypePlugins ?? []), rehypePrism];
+      options.rehypePlugins = [...(options.rehypePlugins ?? [])];
 
       return options;
     },

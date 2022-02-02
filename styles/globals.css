@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "prism.css";
-
 @layer base {
   @font-face {
     font-family: "HK Grotesk";
