@@ -19,7 +19,7 @@ const Tag = ({ tag, posts }: TagProps) => {
             <p>Go back</p>
           </span>
         </button>
-        <h1 className="text-4xl font-bold font-heading sm:text-5xl lg:text-7xl 2xl:text-8xl">
+        <h1 className="text-4xl   sm:text-5xl lg:text-7xl 2xl:text-8xl">
           {tag}
         </h1>
         <span className="space-x-2 sm:text-xl md:text-2xl">

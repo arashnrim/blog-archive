@@ -5,65 +5,57 @@
 @import "prism.css";
 
 @layer base {
-    @font-face {
-        font-family: "Clash Display";
-        font-display: swap;
-        font-weight: 400;
-        src: url("../public/fonts/ClashDisplay-Regular.woff2") format("woff2");
-        src: url("../public/fonts/ClashDisplay-Regular.woff") format("woff");
-    }
-    @font-face {
-        font-family: "Clash Display";
-        font-display: swap;
-        font-weight: 600;
-        src: url("../public/fonts/ClashDisplay-Semibold.woff2") format("woff2");
-        src: url("../public/fonts/ClashDisplay-Semibold.woff") format("woff");
-    }
-    @font-face {
-        font-family: "Inter";
-        font-display: swap;
-        font-weight: 400;
-        src: url("../public/fonts/Inter-Regular.woff2") format("woff2");
-        src: url("../public/fonts/Inter-Regular.woff") format("woff");
-    }
-    @font-face {
-        font-family: "Inter";
-        font-display: swap;
-        font-weight: 700;
-        src: url("../public/fonts/Inter-Bold.woff2") format("woff2");
-        src: url("../public/fonts/Inter-Bold.woff") format("woff");
-    }
-    @font-face {
-        font-family: "JetBrains Mono";
-        font-display: swap;
-        font-weight: 400;
-        src: url("../public/fonts/JetBrainsMono-Regular.woff2") format("woff2");
-        src: url("../public/fonts/JetBrainsMono-Regular.woff") format("woff");
-    }
-    @font-face {
-        font-family: "JetBrains Mono";
-        font-display: swap;
-        font-weight: 500;
-        src: url("../public/fonts/JetBrainsMono-Medium.woff2") format("woff2");
-        src: url("../public/fonts/JetBrainsMono-Medium.woff") format("woff");
-    }
-    @font-face {
-        font-family: "JetBrains Mono";
-        font-style: italic;
-        font-display: swap;
-        font-weight: 700;
-        src: url("../public/fonts/JetBrainsMono-BoldItalic.woff2") format("woff2");
-        src: url("../public/fonts/JetBrainsMono-BoldItalic.woff") format("woff");
-    }
+  @font-face {
+    font-family: "HK Grotesk";
+    font-display: swap;
+    font-weight: 400;
+    src: url("../public/fonts/HKGrotesk-Regular.woff2") format("woff2");
+    src: url("../public/fonts/HKGrotesk-Regular.woff") format("woff");
+  }
+  @font-face {
+    font-family: "HK Grotesk";
+    font-display: swap;
+    font-weight: 800;
+    src: url("../public/fonts/HKGrotesk-ExtraBold.woff2") format("woff2");
+    src: url("../public/fonts/HKGrotesk-ExtraBold.woff") format("woff");
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    font-display: swap;
+    font-weight: 400;
+    src: url("../public/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+    src: url("../public/fonts/JetBrainsMono-Regular.woff") format("woff");
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    font-display: swap;
+    font-weight: 500;
+    src: url("../public/fonts/JetBrainsMono-Medium.woff2") format("woff2");
+    src: url("../public/fonts/JetBrainsMono-Medium.woff") format("woff");
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    font-style: italic;
+    font-display: swap;
+    font-weight: 700;
+    src: url("../public/fonts/JetBrainsMono-BoldItalic.woff2") format("woff2");
+    src: url("../public/fonts/JetBrainsMono-BoldItalic.woff") format("woff");
+  }
 
-    a {
-        @apply dotted
-    }
-}
+  a {
+    @apply p-0.5 font-extrabold underline transition-colors rounded-sm hover:bg-white hover:text-black underline-offset-4 decoration-dotted;
+  }
 
-@layer utilities {
-    .dotted {
-        text-decoration: underline dotted;
-        text-underline-offset: 5px;
-    }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-extrabold;
+  }
+
+  * {
+    @apply duration-200;
+  }
 }

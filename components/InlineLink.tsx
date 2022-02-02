@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 interface InlineLinkProps {
   link: string;
@@ -11,7 +11,7 @@ const InlineLink = ({ link, redirect, children }: InlineLinkProps) => (
     href={link}
     target={redirect ? "_blank" : ""}
     rel="noreferrer"
-    className="transition dotted hover:opacity-75"
+    className="transition"
   >
     {children}
   </a>

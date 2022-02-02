@@ -25,11 +25,11 @@ const Resource = ({ links, customBody }: ResourceProps) => {
             href={link.link}
             target="_blank"
             rel="noreferrer"
-            className="!no-underline duration-200"
+            className="!no-underline"
             key={link.title}
           >
             <div className="h-full p-5 border rounded-2xl">
-              <p className="!my-0 font-bold break-words">{link.title}</p>
+              <p className="!my-0 break-words">{link.title}</p>
             </div>
           </a>
         ))}

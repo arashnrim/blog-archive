@@ -43,7 +43,7 @@ const Feedback = () => {
     <section className="space-y-5" id="feedback">
       {stored === "true" ? (
         <div className="p-5 text-lg border border-gray-700 rounded-lg sm:text-xl">
-          <p className="font-bold">Thank you!</p>
+          <p>Thank you!</p>
           <p>
             Your feedback has been sent successfully. I view feedback as
             something valuable, so I greatly appreciate you taking the time!
@@ -64,11 +64,11 @@ const Feedback = () => {
                 }
               >
                 <div
-                  className={`flex flex-row items-center p-5 space-x-2 text-lg sm:text-xl transition-colors duration-200 border ${
+                  className={`flex flex-row items-center p-5 space-x-2 text-lg sm:text-xl transition-colors border ${
                     buttonSelected === option.key
-                      ? "border-blue-400"
+                      ? "border-white"
                       : "border-gray-700"
-                  } rounded-lg hover:border-blue-400`}
+                  } rounded-lg hover:border-white`}
                 >
                   {option.icon}
                   <p>{option.text}</p>
@@ -79,10 +79,10 @@ const Feedback = () => {
           <div
             className={`${
               !buttonSelected ? "hidden" : ""
-            } space-y-5 text-lg sm:text-xl`}
+            } space-y-5 text-lg sm:text-xl w-full`}
           >
             <span className="space-y-2">
-              <p className="font-bold">Would you like to give some feedback?</p>
+              <p>Would you like to give some feedback?</p>
               <p>
                 You mentioned that{" "}
                 {buttonSelected === "liked"
@@ -99,7 +99,7 @@ const Feedback = () => {
             <button
               type="submit"
               onClick={() => submitFeedback()}
-              className="px-5 py-2 border border-gray-700 rounded-lg hover:border-blue-400"
+              className={`px-5 py-2 border border-gray-700 rounded-lg hover:border-white`}
             >
               Submit
             </button>
