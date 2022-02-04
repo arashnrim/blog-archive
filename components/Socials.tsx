@@ -1,4 +1,4 @@
-import { FaEnvelope } from "react-icons/fa";
+import { FaEnvelope, FaBlog } from "react-icons/fa";
 import { SiFigma, SiGithub, SiLinkedin } from "react-icons/si";
 
 const socials = [
@@ -8,6 +8,13 @@ const socials = [
       <SiGithub className="w-full h-full transition-opacity hover:opacity-75" />
     ),
     link: "https://github.com/arashnrim",
+  },
+  {
+    name: "blog",
+    icon: (
+      <FaBlog className="w-full h-full transition-opacity hover:opacity-75" />
+    ),
+    link: "https://blog.arash.codes",
   },
   {
     name: "LinkedIn",
@@ -33,13 +40,12 @@ const socials = [
 ];
 
 const Socials = () => (
-  <nav className="flex flex-row items-center justify-center mt-5 space-x-6 lg:justify-start lg:items-start">
+  <ul className="flex flex-row flex-wrap items-center justify-center mt-5 space-x-6 lg:justify-start lg:items-start">
     {socials.map((social) => (
       <a
         href={social.link}
         target="_blank"
         rel="noreferrer"
-        className="w-8 h-8 md:w-10 sm:h-10"
         title={
           social.name === "email"
             ? "Contact via email"
@@ -56,10 +62,10 @@ const Socials = () => (
         }
         key={social.name}
       >
-        {social.icon}
+        <p>{social.name.toLowerCase()}</p>
       </a>
     ))}
-  </nav>
+  </ul>
 );
 
 export default Socials;
