@@ -13,9 +13,25 @@
   @font-face {
     font-family: "HK Grotesk";
     font-display: swap;
+    font-weight: 400;
+    font-style: italic;
+    src: url("../public/fonts/HKGrotesk-Italic.woff2") format("woff2");
+    src: url("../public/fonts/HKGrotesk-Italic.woff") format("woff");
+  }
+  @font-face {
+    font-family: "HK Grotesk";
+    font-display: swap;
     font-weight: 800;
     src: url("../public/fonts/HKGrotesk-ExtraBold.woff2") format("woff2");
     src: url("../public/fonts/HKGrotesk-ExtraBold.woff") format("woff");
+  }
+  @font-face {
+    font-family: "HK Grotesk";
+    font-display: swap;
+    font-weight: 800;
+    font-style: italic;
+    src: url("../public/fonts/HKGrotesk-ExtraBoldItalic.woff2") format("woff2");
+    src: url("../public/fonts/HKGrotesk-ExtraBoldItalic.woff") format("woff");
   }
   @font-face {
     font-family: "JetBrains Mono";
