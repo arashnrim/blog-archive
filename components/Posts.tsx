@@ -31,7 +31,7 @@ const Posts = ({ frontmatters }: PostsProps) => {
   });
 
   return (
-    <section className="grid grid-cols-1 px-10 py-10 lg:grid-cols-2 lg:py-20 md:px-12 lg:px-20 gap-y-10 lg:gap-10 text-lg sm:text-xl">
+    <section className="grid grid-cols-1 py-10 text-lg lg:grid-cols-2 lg:py-20 gap-y-10 lg:gap-10 sm:text-xl">
       {frontmatters ? (
         frontmatters.map((frontmatter) => {
           const readingTime = frontmatter.words

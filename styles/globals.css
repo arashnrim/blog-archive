@@ -73,3 +73,9 @@
     @apply duration-200;
   }
 }
+
+@layer utilities {
+  .vertical-text {
+    writing-mode: vertical-lr;
+  }
+}

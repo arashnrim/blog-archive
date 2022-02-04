@@ -33,7 +33,7 @@ const Post: NextPage<PostProps> = ({ frontmatter, code, slug }: PostProps) => {
         postDescription={frontmatter.description}
         postURL={"https://blog.arash.codes/" + slug}
       >
-        <section className="h-auto bg-gradient-to-b from-black to-[#0a0a0a] pt-40 pb-10 flex flex-col justify-end rounded-b-3xl px-10 md:px-20 lg:px-40">
+        <section className="h-auto bg-gradient-to-b from-black to-[#0a0a0a] pt-40 pb-10 flex flex-col justify-end rounded-b-3xl">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl 2xl:text-8xl">
             {frontmatter.title}
           </h1>
@@ -48,7 +48,7 @@ const Post: NextPage<PostProps> = ({ frontmatter, code, slug }: PostProps) => {
             </span>
           )}
         </section>
-        <section className="px-10 py-20 space-y-10 md:px-20 lg:px-40">
+        <section className="pt-10 space-y-10 lg:pt-20">
           <article className="prose prose-lg text-white prose-invert sm:prose-xl md:prose-2xl prose-pre:bg-gray-900">
             <RenderedComponent />
           </article>
