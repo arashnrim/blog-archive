@@ -26,7 +26,7 @@ const Layout = ({
       url={postURL ? postURL : undefined}
     />
     <Header />
-    <main className={className + " min-h-screen px-10 md:px-20 lg:px-40"}>
+    <main className={(className && className + " ") + "min-h-screen"}>
       {children}
     </main>
     <Footer />
