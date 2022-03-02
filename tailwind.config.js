@@ -14,6 +14,15 @@ module.exports = {
       colors: {
         gray: colors.neutral,
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            img: {
+              "border-radius": "0.75rem",
+            },
+          },
+        },
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

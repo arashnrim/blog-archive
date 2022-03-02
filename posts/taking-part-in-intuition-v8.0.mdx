@@ -1,0 +1,140 @@
+---
+title: Taking part in iNTUition v8.0
+date: 1 March 2022
+description: Learn more about my experience going through iNTUition v8.0, a hackathon, and my lessons through it.
+tags: opinion,learning log
+words: 1874
+---
+
+I recently took part in [iNTUition v8.0](https://intuition.ieeentu.com), a hackathon run by the IEEE NTU Student Branch. It was quite a fun experience and definitely the first hackathon where I truly felt like I was going through 'the hackathon experience'. Whether it's staying up late till the following day or, surprisingly, achieving Best Pre-University Hack, this hackathon was quite a learning journey for me.
+
+There were a few things that I got to learn while working on our project, *[feducia](https://devpost.com/software/feducia)*. Sure, some of these things may be conditional and situational. Still, I like to think that these lessons can generally be applied to many other things. Some things I've learnt here include:
+
+- looking out for other teammates;
+- enjoying the platforms provided;
+- streamlining the experience where possible;
+- adapting and improvising on the go;
+- casting doubt reasonably and ignoring self-sabotage;
+- taking breaks throughout the session; and
+- persisting to the end.
+
+Let's take some time to take a look at each point. It's an excellent opportunity for me to reflect on all that's happened, anyway!
+
+## Looking out for other teammates
+
+My teammates' experience may not have been the best in this hackathon. Two of us had conflicting schedules, which required them to be unavailable for a significant part of either day the hackathon ran. Additionally, they also weren't as experienced in working on front-end code. This posed a little challenge for our team, as we needed all hands on deck where possible. There may be lots to do in such little time in events like these!
+
+I spent some time going through with one teammate the basics of writing code in my framework of choice for the front end, [Next.js](https://nextjs.org). As [JSX](https://reactjs.org/docs/introducing-jsx.html) is at the core of Next.js, I went through the basics of guiding him through HTML tags and also helped introduce styling with [Tailwind CSS](https://tailwindcss.com). We worked together and managed to get off to a great start! Eventually, when I moved to write code on the back end, he could get things working and build the front end precisely as we'd designed previously on [Figma](https://figma.com). When the other teammate returned, he could even teach the basics!
+
+An important reminder is that a part of hackathons is to learn something. In this case, I'm glad that my teammates got introduced to writing a little bit of HTML (and not!). At the same time, I've learnt this vital lesson to look after all your teammates. As much as possible, anyway!
+
+## Enjoying the platforms provided
+
+iNTUition v8.0 introduced a virtual space where interaction with other hackathon-goers and sponsors. There were a few fun 'places' to be, including an arcade, sponsor buildings, and hacker arena. There were also a few additional features like a universal jukebox and emotes. We had some fun in using the emotes mainly, though!
+
+<figure>
+    <img src="images/taking-part-in-intuition-v8.0/001.gif" alt="Two virtual avatars backflipping and flossing simulatenously" />
+    <figcaption>The totally cool and epic emotes available in the virtual platform includes a backflip and ...flossing?</figcaption>
+</figure>
+
+One regret that I probably had was that I didn't get the chance to use the platforms the organisers had planned for this event. Sure, I did log in a few times a day — and maybe a time or two in the early morning — but I didn't really do anything much, unfortunately.
+
+Other events happened during the hackathon — mainly sponsored segments. Looking back, it would be great if I had taken some time to participate in some of them! Granted, I probably didn't have the time to, but it would be a nice-to-do to make use of the opportunities given and planned by the organisers.
+
+## Streamlining the experience
+
+Before the hackathon took off, I got the idea of possibly using [VS Code's Live Share extension](https://code.visualstudio.com/learn/collaboration/live-share) to streamline our coding experience. Assuming that one of us had nothing to begin with, trying to get started involves the following steps:
+
+1. Installing Node.js and VS Code
+2. Setting up and configuring Git
+3. Cloning the repository from GitHub
+4. Making changes
+5. Committing the changes to the repository
+
+I doubt that there was much time to speedrun through the concepts of Git and GitHub in a hackathon, so I opted to use the Live Share extension. In short, the extension allows me, a central source, to share the workspace I have open to anyone with a link. We'll be able to view, edit, and, surprisingly, even share servers (sharing `localhost:3000` and `localhost:5000` was astounding!) while acting independently of each other.
+
+With VS Code's Live Share extension, the experience was streamlined, and much wasn't needed to get things working:
+
+1. Installing VS Code and the Live Share extension
+2. Connecting to the shared workspace
+3. Making changes
+
+After everyone's made changes, I can create commits and credit everyone for their contribution to the code as well. I learnt of the `Co-authored-by:` trailer, which allowed me to create a commit with multiple committers!
+
+<figure>
+    <img src="images/taking-part-in-intuition-v8.0/002.png" alt="Example of GitHub parsing the Co-authored-by trailer by four commiters" />
+    <img src="images/taking-part-in-intuition-v8.0/003.png" alt="Example of GitHub parsing the Co-authored-by trailer by two commiters" />
+    <figcaption>GitHub parses commits with multiple commiters in a pretty neat way.</figcaption>
+</figure>
+
+```
+git commit -m "Commit message
+
+Co-authored-by: Author Name <author@example.com>"
+```
+
+Another way is to accredit a different author, but commit it as yourself. I found it pretty interesting that doing that was possible!
+
+<figure>
+    <img src="images/taking-part-in-intuition-v8.0/004.png" alt="Example of GitHub parsing a different author and commiter" />
+    <figcaption>GitHub parses commits with a different author and commiter in a pretty neat way too.</figcaption>
+</figure>
+
+```
+git commit -m "Commit message" --author="Author Name <author@example.com>"
+```
+
+## Adapting and improvising on the go
+
+I admit, there are a few hiccups that happened throughout this hackathon. There were a few that still stood out to me:
+
+- being unable to submit our submission on time; and
+- recording our submission video.
+
+We managed to find a way to work around the problem (well, for the first, we solved it by submitting it as soon as possible). We suffered many unexpected technical difficulties when trying to record our demo video. From transferring to the wrong wallet (whoops on my end!) to painstakingly long loading times to unresponsive screen recording software (thanks, QuickTime...), everything that could've gone wrong did go wrong.
+
+We still had to continue working to submit, though, so we tried to think of ways to work around it! To tackle how to record internal audio (our plan was for one person to speak through Discord and my computer recording the audio and screen), a teammate used his external microphone while I recorded my screen on my end before combining the two. I quickly looked for an alternative (thank you, [Kap](https://getkap.co), even though you were also a little messed up!) to replace QuickTime for unresponsive screen recording software.
+
+## Casting doubt reasonably and ignoring self-sabotage
+
+It's important to note the fine line between valid doubt and self-sabotage. These two were heavily apparent when going through the hackathon. To me, valid doubt is **something that can be beneficial for the team** — for example, if you're uncertain if something can be done by the end of the hackathon, it's better to raise your concern for it. On the other hand, self-sabotage is **behaviour that can divert yourself and your team away from a good state**.
+
+Sure, there were some times when I was genuinely concerned about the feasibility of our idea — this appears to me now as valid doubt. We wanted to integrate many things at once, and I was unsure about the grandiosity our idea seemingly had in paper than in a practical sense. On the other hand, when we experienced difficulties recording our demo and submitted it late, I was hesitant to continue — even unsure if I wanted to show up for the judges' evaluation. That, to me, felt like self-sabotage.
+
+It's great to monitor your own behaviour and watch out for self-tripping opportunities. At the same time, in the moment, it's hard to. To me, though, the best way is to at least look back and note the mistakes you made! You don't necessarily have to make an effort to fix it — after all, it might not be as easy — but you shouldn't completely ignore what happened either!
+
+## Taking breaks throughout the session
+
+I highly doubt many people can keep doing something for 24 hours straight. Especially with code, where our eyes are practically glued to the screen for the entire day, it's essential to take breaks once in a while! Just because it's a hackathon doesn't mean you don't have to take care of yourself.
+
+My team took three breaks in total, and in hindsight, I feel like we should've implemented more. The first was a lunch break from 12:00 p.m. to 12:30 p.m. on the first day. The second was a dinner break from 6:30 p.m. to 8:15 p.m. on the first day. Finally, the third was a nap break from 6:00 a.m. to 7:00 a.m. the next day.
+
+<figure>
+    <img src="images/taking-part-in-intuition-v8.0/005.png" alt="A Discord window showing the chat history throughout the hackathon" />
+    <figcaption>Two of us continued to work until the early morning on our project.</figcaption>
+</figure>
+
+We called for the breaks whenever we felt like we needed them. I found the nap break to be the most interesting since we were somehow able to get into the flow at 3:00 a.m. and not feel fatigued when working. It was only when we encountered hilarious bumps — like wondering why the code hasn't changed when we haven't saved! — that we decided to call for breaks.
+
+In line with taking looking out for your teammates, remember to take breaks often and give the team ample rest!
+
+## Persisting to the end
+
+In line with what I mentioned in the section about self-sabotage, I was genuinely disappointed in myself when we couldn't finish in time (for non-penalty submission). I was on the verge of giving up, disappointed that the work we'll give will have the additional penalty of late submission. I was blind to see that doing so meant discarding more than 12 hours' worth of our work, and that isn't good at all!
+
+Once something is done almost to the end, we might as well work a little more on it to reach the end. Even with self-sabotage present, I didn't exactly do anything to stop whatever we were doing. That's good, I guess! It's important to remember that the work you did — for me, especially in a hackathon — is worth hours of hard effort you and your teammates put in. Even if you don't have anything much, it doesn't hurt to share what you've made — that's the spirit of hackathons, anyway!
+
+## Conclusion
+
+<figure>
+    <img src="images/taking-part-in-intuition-v8.0/006.png" alt="Our project, feducia, presented as Best Pre-University Hack" />
+    <figcaption>Our project, feducia, presented as Best Pre-University Hack!</figcaption>
+</figure>
+
+I was genuinely baffled at how we managed to achieve Best Pre-University Hack in this hackathon. There were many cool and exciting projects made by other people out there. As a mere individual joining the hackathon in the liminal period between secondary school and polytechnic, I felt like there was no chance at all.
+
+For what it's worth, hackathons aren't necessarily about the wins. It could be about learning something new, getting to build something with your friends, tapping into your team's potential with everyone playing their own strengths, and so much more. Hackathons aren't just events for making; they're also for socialising!
+
+I regret that I hadn't taken part in some of the social aspects of this hackathon. Whether interacting with people through the virtual platform created or joining the prepared networking session, I felt like I should've entered more things during the hackathon instead of merely focusing on code.
+
+If you're someone up to participate in a hackathon, take this advice with a pinch of salt! Go out there, code something cool (to you!), and interact with your team and others while you're at it. Thanks for reading!
