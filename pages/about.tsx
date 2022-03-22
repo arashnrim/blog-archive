@@ -8,8 +8,8 @@ const About = () => {
   return (
     <Layout className="text-lg sm:text-xl">
       <Hero />
-      <section className="py-10 lg:pt-20">
-        <div className="prose prose-lg text-white prose-invert sm:prose-xl md:prose-2xl max-w-none">
+      <section className="px-10 py-10 lg:pt-20 md:px-20 lg:px-40">
+        <div className="prose prose-lg text-white prose-invert sm:prose-xl md:prose-2xl">
           <object className="float-left w-1/3 max-w-xs pb-2 pr-10 lg:pb-8 lg:pr-20">
             <Image
               src={profilePicture}
