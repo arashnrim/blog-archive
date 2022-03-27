@@ -1,6 +1,5 @@
 {
   "extends": [
-    "plugin:mdx/recommended",
     "next/core-web-vitals"
   ],
   "plugins": [
@@ -10,7 +9,7 @@
     "prettier/prettier": "error"
   },
   "overrides": [{
-    "files": "*.mdx",
+    "files": ["*.mdx"],
     "extends": "plugin:mdx/recommended"
   }]
 }
