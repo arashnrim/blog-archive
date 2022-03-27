@@ -10,6 +10,10 @@
   },
   "overrides": [{
     "files": ["*.mdx"],
-    "extends": "plugin:mdx/recommended"
+    "extends": "plugin:mdx/recommended",
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    }
   }]
 }
