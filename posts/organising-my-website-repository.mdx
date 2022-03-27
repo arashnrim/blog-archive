@@ -42,6 +42,7 @@ The first thing I did was look at the branches available to me.
 ```shell
 git branch -a
 ```
+
 ```
 * main
   remote/origin/HEAD -> origin/v2.1
@@ -87,13 +88,14 @@ git add . && git commit -S -m "..."
 
 > **A tip or two**
 >
-> The `-S` flag passed onto the `git commit` command signs the commit with a GPG key I set up. This verifies that your commit is *really* made by you!
+> The `-S` flag passed onto the `git commit` command signs the commit with a GPG key I set up. This verifies that your commit is _really_ made by you!
 
 And that was for `v1.0`! Moving on to `v1.1`, I decided to try merging the two branches just to see what might happen:
 
 ```shell
 git merge v1.1
 ```
+
 ```
 CONFLICT (file location): <new file 1> added in v1.1 inside a directory that was renamed in HEAD, suggesting it should perhaps be moved to v1/<new file 1>.
 CONFLICT (file location): <new file 2> added in v1.1 inside a directory that was renamed in HEAD, suggesting it should perhaps be moved to v1/<new file 2>.
