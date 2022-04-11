@@ -20,6 +20,16 @@ module.exports = {
             img: {
               "border-radius": "0.75rem",
             },
+            a: {
+              "text-decoration": "underline",
+              "text-decoration-style": "dotted",
+              "text-underline-offset": "4px",
+              "font-weight": "800",
+            },
+            abbr: {
+              "text-underline-offset": "4px",
+              cursor: "help",
+            },
           },
         },
       },
