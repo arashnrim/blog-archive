@@ -56,6 +56,11 @@
     src: url("../public/fonts/JetBrainsMono-BoldItalic.woff") format("woff");
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 25vh;
+  }
+
   a {
     @apply p-0.5 font-extrabold underline transition-colors rounded-sm hover:bg-white hover:text-black underline-offset-4 decoration-dotted;
   }
