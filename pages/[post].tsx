@@ -6,6 +6,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import path from "path";
 import { useMemo } from "react";
 import { FaCalendar, FaClock } from "react-icons/fa";
+import rehypeSlug from "rehype-slug";
 import Feedback from "../components/Feedback";
 import Layout from "../components/Layout";
 import { calculatePostReadingTime, Frontmatter } from "../utils/post-utils";
@@ -99,7 +100,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { code, frontmatter } = await bundleMDX({
     source: unprocessedContent,
     mdxOptions(options) {
-      options.rehypePlugins = [...(options.rehypePlugins ?? [])];
+      options.rehypePlugins = [...(options.rehypePlugins ?? [rehypeSlug])];
 
       return options;
     },
