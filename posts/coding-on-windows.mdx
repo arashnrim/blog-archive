@@ -14,11 +14,11 @@ With that said, one of the major concerns that I had was moving my coding experi
 
 In general, here are the few things that I've learnt that I want to go through.
 
-- Windows 11
-- Windows Subsystem for Linux
-- yadm
-- Git Credential Manager
-- Hyper-V and VirtualBox
+- [Windows 11](#windows-11)
+- [Windows Subsystem for Linux](#windows-subsystem-for-linux)
+- [yadm](#yadm)
+- [Git Credential Manager](#git-credential-manager)
+- [Hyper-V and VirtualBox](#hyper-v-and-virtualbox)
 
 ## Windows 11
 
@@ -46,17 +46,17 @@ In other words, WSL allows you to run the shell of a Linux distribution (for ins
 
 1. To get started, all I had to do was run the install command.
 
-    ```
-    wsl --install
-    ```
+   ```
+   wsl --install
+   ```
 
-    <figure>
-        <img
-            src="images/coding-on-windows/002.png"
-            alt="A screenshot of lines acknowledging the installation of WSL"
-        />
-        <figcaption>Installing WSL is as simple as a command.</figcaption>
-    </figure>
+   <figure>
+     <img
+       src="images/coding-on-windows/002.png"
+       alt="A screenshot of lines acknowledging the installation of WSL"
+     />
+     <figcaption>Installing WSL is as simple as a command.</figcaption>
+   </figure>
 
 After reading a little more about it, I settled on using WSL for anything coding-related. I'll have access to `apt` to install whatever I need, and that's a really good thing. Not to mention, WSL is officially supported by Visual Studio Code, my preferred text editor. VS Code's documentation has a [detailed page](https://code.visualstudio.com/docs/remote/wsl) explaining all the things you need to do to get started with using WSL. TL;DR, it's as simple as installing an extension. The experience is pretty seamless, too!
 
@@ -65,7 +65,10 @@ After reading a little more about it, I settled on using WSL for anything coding
     src="images/coding-on-windows/003.png"
     alt="A screenshot of code with WSL: Ubuntu at the bottom"
   />
-  <figcaption>The "WSL: Ubuntu" bit at the status bar shows that I'm running this from WSL!</figcaption>
+  <figcaption>
+    The "WSL: Ubuntu" bit at the status bar shows that I'm running this from
+    WSL!
+  </figcaption>
 </figure>
 
 ## yadm
@@ -74,25 +77,25 @@ As mentioned earlier, I keep my dotfiles backed up in a dotfiles repository host
 
 1. First off, I had to install yadm. Fortunately for me, it's available as a package in `apt`. It's as simple as running the install command!
 
-    ```
-    sudo apt install yadm
-    ```
+   ```
+   sudo apt install yadm
+   ```
 
 2. Next, I had to clone my dotfiles repository. Since I had a [bootstrap file](https://yadm.io/docs/bootstrap) to clean up unnecessary files (like the LICENSE and README files), I ran that as well.
 
-    ```
-    yadm clone https://github.com/arashnrim/dotfiles -b main -m main
-    ```
+   ```
+   yadm clone https://github.com/arashnrim/dotfiles -b main -m main
+   ```
 
 3. It appeared to me at this stage that things were unexpectedly broken here and there. I realised that many of them had to do with different configurations needed (for example, the path to GPG for Git differs on both Linux and macOS) so I relied on yadm's [alternate files](https://yadm.io/docs/alternates) to do the trick. It took a little bit of time to clean things up, but eventually things were okay!
 
 4. I realised that the `fish` shell broke if you were to install `fish` as-is from `apt` as [Tide](https://github.com/IlanCosman/tide), my `fish` prompt of choice, required the latest version. After a quick search, I realised that you had to subscribe to [`fish`'s version 3 repository](https://launchpad.net/~fish-shell/+archive/ubuntu/release-3) for `apt` before installing it again.
 
-    ```
-    sudo apt-add-repository ppa:fish-shell/release-3
-    sudo apt update
-    sudo apt install fish
-    ```
+   ```
+   sudo apt-add-repository ppa:fish-shell/release-3
+   sudo apt update
+   sudo apt install fish
+   ```
 
 ## Git Credential Manager
 
@@ -108,25 +111,25 @@ Installing it was quite a breeze, too.
 
 3. Afterwards, I installed the package and configured GCM.
 
-    ```
-    sudo dpkg -i [path-to-package]
-    git-credential-manager-core configure
-    ```
+   ```
+   sudo dpkg -i [path-to-package]
+   git-credential-manager-core configure
+   ```
 
 4. Next, I altered the .gitconfig file to use `gpg` as the `credentialStore` and installed `pass`.
 
-    ```
-    # in .gitconfig
-    [credential]
-        credentialStore = gpg
-        # ...
-    ```
+   ```
+   # in .gitconfig
+   [credential]
+       credentialStore = gpg
+       # ...
+   ```
 
-    ```
-    sudo apt install pass
-    gpg --list-keys # To take note of your key's ID!
-    pass init [key ID]
-    ```
+   ```
+   sudo apt install pass
+   gpg --list-keys # To take note of your key's ID!
+   pass init [key ID]
+   ```
 
 When trying to alter the remote repository after this (for example, by pushing), a window appears to authenticate into GitHub once and things worked smoothly!
 
@@ -138,19 +141,19 @@ A truce that I settled on at the moment is turning on and off Hyper-V when I wis
 
 1. To turn _off_ Hyper-V, I had to set `hypervisorlaunchtype` to `off` in an elevated Command Prompt.
 
-    ```
-    bcdedit /set hypervisorlaunchtype off
-    ```
+   ```
+   bcdedit /set hypervisorlaunchtype off
+   ```
 
-    For this, it's important to note that disabling Hyper-V temporarily restricts access to WSL.
+   For this, it's important to note that disabling Hyper-V temporarily restricts access to WSL.
 
 2. To turn _on_ Hyper-V, I had to set `hypervisorlaunchtype` to `auto` in an elevated Command Prompt.
 
-    ```
-    bcdedit /set hypervisorlaunchtype auto
-    ```
+   ```
+   bcdedit /set hypervisorlaunchtype auto
+   ```
 
-    For this, it's important to note that both WSL and VirtualBox can run, but VirtualBox may do so with severely impacted performance.
+   For this, it's important to note that both WSL and VirtualBox can run, but VirtualBox may do so with severely impacted performance.
 
 3. To apply the changes, restart your computer.
 
