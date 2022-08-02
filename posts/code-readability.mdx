@@ -1,0 +1,103 @@
+---
+title: "Code readability"
+date: 9 July 2022
+description: Understand my perspective on code readability and what it means to me when developing.
+tags: code
+words: 1316
+---
+
+Code readability is something I find important, but when writing code (especially in a language that I'm reasonably familiar with), it tends to become an oversight. The consequences of code readability often isn't instantly noticeable if you're working alone, but when working together with others, it's important to remember to write code that other people can understand!
+
+## Why should we maintain readability?
+
+Making sure that your code is readable sounds like a no-brainer, but at certain points in time — such as when rushing to write code — it's easy to forget about it. From the little time I've had coding here and there, as well as from reading online on other developers' thoughts on the matter, here are a few reasons why I think readability is important:
+
+- Having code that is organised and readable ensures that other people — including future you — will be able to (quickly) understand what the code is doing. A good question to ask yourself as you write is, "If I were to see this code again in a year, will I be able to understand it?"
+
+- Readable code may allow you to spot patterns that you may correct or improve. You may be writing inefficient code that you wouldn't notice at the point of coding, but you might catch it when glancing through the code again!
+
+- Especially when working with others, forgetting readability often may create a bad habit among others as well. I like to think that coding can be social; you can learn new things about code from others as much as they can from you. When you work together, your coding habits are sometimes shared — subconsciously or not — amongst one another. If a habit of forgetting readability starts, in the long run, the people you work with might cultivate the same habit, too.
+
+## What am I doing to maintain readability?
+
+I think it's a personal journey for every developer; you'll find your own workflow when it comes to writing code and maintaining readability! For me, maintaining readability comes in three main parts:
+
+- Using a standardised code style;
+- utilising comments in appropriate places; and
+- occassionally reviewing old code.
+
+### Using a standardised code style
+
+I depend a lot on linters and code formatters when I work. I try to use them whenever they're available; in the languages I currently use, they all offer a linter or formatter, so I don't have to think really hard about styling my code. I mainly use Visual Studio Code, so many of the languages I use can be used with a linter which has an extension; that makes things easier!
+
+#### JavaScript and TypeScript
+
+My language of choice at the time of writing is TypeScript, and ESLint is an excellent linter for JavaScript and TypeScript. Along with ESLint is Prettier, a pretty (no pun intended) popular code formatter. Thanks to `eslint-plugin-prettier` made by the Prettier team, it's easy for me to link ESLint and Prettier together!
+
+0. To begin, install ESLint, Prettier, and Prettier's ESLint config and plugin as dev dependencies.
+
+   ```
+   # Of course, you can use your Node package manager of choice!
+   pnpm i -D eslint prettier eslint-config-prettier eslint-plugin-prettier
+   ```
+
+1. Next, initialise ESLint in your repository.
+
+   ```
+   pnpx eslint --init
+   ```
+
+2. Follow the wizard and remove any plugins that ESLint has installed by default (except for the TypeScript plugin if you're using TypeScript, obviously), then add `plugin:prettier/recommended`.
+
+   ```
+   # eslintrc.*
+   "plugins": ["plugin:prettier/recommended"]
+   ```
+
+You should be all good to go!
+
+#### Python
+
+With Python, I usually use whichever formatter VS Code throws at me; usually, that's autopep8. There's also Pylance, and all those come bundled with the Python extension in VS Code. That's pretty neat!
+
+### Utilising comments in appropriate places
+
+Comments are something that can be greatly helpful in explaning certain parts of your code. At the time of writing, though, I don't think I've written that many comments; in a way, I'm not practicing what I preach, but I hope to change that eventually! While writing comments may help, it's important to know _what_ to write in your commends. To me, that's definitely a lot more important than how many comments you should litter around the place.
+
+I hope to start adding comments in appropriate places, using the following guidelines to help:
+
+- Comments should be succinct; they should be short but detailed enough to understand what a chunk of code does at a glance.
+
+- Don't overdo comments by including unnecessary details; try to keep your explanations to why, how, and what.
+
+### Occassionally reviewing old code
+
+One thing that I like to think may be a good thing is to go back and look at old code. There are several reasons why:
+
+- Coming from the future where you're more knowledgeable, you'll be able to spot mistakes and clean them up.
+
+- If your code has dependencies, you'll be able to prevent vulnerabilities by upgrading (though, not a lot of devs may continue upgrading dependencies post-project!)
+
+- If you've forgotten certain code patterns that you probably should, your old code might be able to offer some insight.
+
+When reviewing old code, feel free to see if there's anything you can do to help make your code more readable. I haven't exactly done this as well, but I think that I'd love to give it a try. At the time of writing, I don't really have that many projects, so it's a better time than ever to get started!
+
+## My questionable code
+
+Over the short period of time I've spent learning to code, I think that I've written a lot of questionable lines across several languages. I currently play around with Python and TypeScript (or JavaScript) a lot, and I realise that I've sometimes written code in a reasonably unreadable manner. Here are just a few examples:
+
+- list comprehension — especially in Python, I'm the kind of person who would use list comprehensions whenever I get the chance to. Sometimes, though, especially when operations on each element is more complex, I need to remind myself that list comprehension may work, but it may not be the best in terms of readability.
+
+- ternary operators — in both TypeScript (or JavaScript) and Python, I'm used to using ternary operators (`condition ? true_val : false_val` and `true_val if condition else false_val`) and have the impulse to replace every if-else statement with it. Where ternary operators reduce the number of line, in increases the length of a line, though. Not to mention, ternary operators do not entirely replace if statements, and I need to exercise more caution when using ternary operators if it makes code less readable.
+
+## Conclusion
+
+I think that readability is a subjective thing; there isn't exactly a standard for what makes code readable. For some, it takes a lot of complicated chunks of code to be considered slightly challenging, and for others it's really easy to get confused. What matters the most is that the code is presented in a way that's logical to your expected viewer. When writing code, especially one that's open source, consider what your target audience is: maybe beginners, like those starting to code, or advanced developers? I think that these guiding questions will help me in my journey of making my code more (subjectively) readable:
+
+- If you were to revisit this code in a year's time, would you be able to understand it quickly?
+
+- Even if you're not working with others, do you think that your code can be easily understood by others?
+
+- Should I consider writing my code like this for the sake of line length, or should I expand it out?
+
+Spend some time to figure out your own how you code. I think it also doesn't hurt to revisit old code from time to time, and spend more time scrutinising the way you currently code! Code readability isn't just good for you, but for whoever else you work with too in the long run — whether it's if you create open source projects or share your code with someone else.
