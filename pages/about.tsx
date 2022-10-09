@@ -24,7 +24,7 @@ const About = () => {
           </p>
           <small>
             (psst, read more about me in my{" "}
-            <a href="https://arash.codes" target="_blank" rel="noreferrer">
+            <a href="https://arashnrim.me" target="_blank" rel="noreferrer">
               website
             </a>
             !)

@@ -7,7 +7,7 @@ const Hero = () => {
         function()
       </h1>
       <p className="mt-5 text-lg sm:text-xl">
-        <InlineLink link="https://arash.codes" redirect={true}>
+        <InlineLink link="https://arashnrim.me" redirect={true}>
           Arash&#39;s
         </InlineLink>{" "}
         blog to share little snippets of everything — code, experiences, and
