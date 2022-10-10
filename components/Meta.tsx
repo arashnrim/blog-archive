@@ -4,8 +4,8 @@ const Meta = ({
   title = "function()",
   name = "Arash Nur Iman",
   description = "Arash's blog to share little snippets of everything — code, experiences, and other fascinating stories to share.",
-  url = "https://blog.arash.codes",
-  image = "https://blog.arash.codes/seo.jpg",
+  url = "https://blog.arashnrim.me",
+  image = "https://blog.arashnrim.me/seo.jpg",
   isBlogPost = false,
 }) => (
   <Head>
@@ -32,7 +32,7 @@ const Meta = ({
       async
       defer
       data-website-id="9e0aa9a0-9da0-4311-897c-ea7ed304fe6c"
-      src="https://analytics.arash.codes/umami.js"
+      src="https://analytics.arashnrim.me/umami.js"
     ></script>
   </Head>
 );

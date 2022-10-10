@@ -2,16 +2,16 @@
 
 # function
 
-Welcome to the repository of function(), my blog (accessible at https://blog.arash.codes)! function() primarily focuses on sharing code snippets I find useful, experiences that I have gone through, and stories that I wish to share with the world.
+Welcome to the repository of function(), my blog (accessible at https://blog.arashnrim.me)! function() primarily focuses on sharing code snippets I find useful, experiences that I have gone through, and stories that I wish to share with the world.
 
 The source code features the following tech stack:
 
-|  Technology  | Description of use |
-|:------------:|:-------------------|
-| [Next.js](https://nextjs.org)      | The framework used to power the entire website. Part of the Jamstack architecture, it allows me to easily build the website. |
-| [Tailwind CSS](https://tailwindcss.com) | The CSS framework used to style the website. It allows me to easily style the website while keeping the design standardised. |
-| [Vercel](https://vercel.com)       | The platform used to deploy the website. It allows me to effortlessly publish live changes to the domain at a single push. |
-| [mdx-bundler](https://github.com/kentcdodds/mdx-bundler) | The Markdown-to-HTML parser used to read MDX content and turn it into plain HTML. It allows me to display my posts in Markdown in a way that React (via Next.js) can render.
+|                        Technology                        | Description of use                                                                                                                                                           |
+| :------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|              [Next.js](https://nextjs.org)               | The framework used to power the entire website. Part of the Jamstack architecture, it allows me to easily build the website.                                                 |
+|         [Tailwind CSS](https://tailwindcss.com)          | The CSS framework used to style the website. It allows me to easily style the website while keeping the design standardised.                                                 |
+|               [Vercel](https://vercel.com)               | The platform used to deploy the website. It allows me to effortlessly publish live changes to the domain at a single push.                                                   |
+| [mdx-bundler](https://github.com/kentcdodds/mdx-bundler) | The Markdown-to-HTML parser used to read MDX content and turn it into plain HTML. It allows me to display my posts in Markdown in a way that React (via Next.js) can render. |
 
 ## Motivations
 
@@ -21,7 +21,7 @@ That inspired me to create a blog of my own. Not to mention, embarking on a proj
 
 ## Contributing
 
-This project is ***not* accepting major contributions** as it is personal. However, if there is an issue — like a spelling or grammatical error, a visual bug, or other kinds of weird things happening — please feel free to [create an issue](https://github.com/arashnrim/website/issues/new).
+This project is **_not_ accepting major contributions** as it is personal. However, if there is an issue — like a spelling or grammatical error, a visual bug, or other kinds of weird things happening — please feel free to [create an issue](https://github.com/arashnrim/website/issues/new).
 
 If you would like to leave comments about the source code — like possible design and code improvements, or other kinds of feedback — please feel free to [create an issue](https://github.com/arashnrim/website/issues/new) too if you wish!
 

@@ -14,7 +14,7 @@ const socials = [
     icon: (
       <FaBlog className="w-full h-full transition-opacity hover:opacity-75" />
     ),
-    link: "https://blog.arash.codes",
+    link: "https://blog.arashnrim.me",
   },
   {
     name: "LinkedIn",
