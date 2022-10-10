@@ -3,4 +3,5 @@ module.exports = {
   siteUrl: "https://blog.arashnrim.me",
   changefreq: "never",
   generateIndexSitemap: false,
+  exclude: ["/about", "/tags/*"],
 };
