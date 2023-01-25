@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaCalendar, FaClock, FaTag, FaTags } from "react-icons/fa";
-import { calculatePostReadingTime, Frontmatter } from "../utils/post-utils";
+import type { Frontmatter } from "../utils/post-utils";
 
 interface PostsProps {
   frontmatters: Frontmatter[];
@@ -34,9 +34,6 @@ const Posts = ({ frontmatters }: PostsProps) => {
     <section className="grid grid-cols-1 px-10 pt-5 pb-10 text-lg lg:grid-cols-2 lg:pt-10 lg:pb-20 gap-y-10 lg:gap-10 sm:text-xl md:px-20 lg:px-40">
       {frontmatters ? (
         frontmatters.map((frontmatter) => {
-          const readingTime = frontmatter.words
-            ? calculatePostReadingTime(frontmatter.words)
-            : undefined;
           return (
             <Link href={frontmatter.slug!} key={frontmatter.title} passHref>
               <div className="p-10 space-y-2 transition-colors border border-gray-700 cursor-pointer hover:border-white rounded-2xl">
@@ -46,12 +43,10 @@ const Posts = ({ frontmatters }: PostsProps) => {
                   <FaCalendar />
                   <p>{frontmatter.date}</p>
                 </span>
-                {readingTime && (
-                  <span className="flex flex-row items-center space-x-2">
+                <span className="flex flex-row items-center space-x-2">
                     <FaClock />
-                    <p>{readingTime} minutes</p>
+                    <p>{frontmatter.time} minutes</p>
                   </span>
-                )}
                 {frontmatter.tags === undefined ? null : (
                   <span className="flex flex-row items-center space-x-2">
                     {frontmatter.tags.length > 1 ? <FaTags /> : <FaTag />}

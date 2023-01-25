@@ -2,14 +2,16 @@ import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
 import process from "process";
+import readingTime from "reading-time";
 
 export interface Frontmatter {
   date: string;
   description?: string;
   tags?: string[];
   title: string;
-  slug?: string;
-  words?: number;
+  slug: string;
+  words: number;
+  time: number;
 }
 
 export const fetchAllPosts = (dateOptions?: object) => {
@@ -19,35 +21,39 @@ export const fetchAllPosts = (dateOptions?: object) => {
       path.join(process.cwd(), "posts", file),
       "utf-8"
     );
-    const frontmatter = matter(unprocessedContent).data;
+
+    const { data: frontmatter, content  } = matter(unprocessedContent);
+
+    // Generating the slug to the post
     frontmatter["slug"] = "/" + file.replace(".mdx", "");
-    const unparsedDate = new Date(frontmatter["date"]);
+
+    // Generating the date the post was made
+    const date = new Date(frontmatter["date"]);
     const defaultDateOptions = {
       day: "numeric",
       month: "long",
       year: "numeric",
     };
-    frontmatter["date"] = unparsedDate.toLocaleDateString(
+    frontmatter["date"] = date.toLocaleDateString(
       "en-SG",
       dateOptions ? dateOptions : defaultDateOptions
     );
+
+    // Generating the tags attached to the post
     const tags = frontmatter["tags"];
     typeof tags === "string"
       ? (frontmatter["tags"] = tags.split(","))
       : (frontmatter["tags"] = tags);
+
+    // Generating the reading time of the post
+    const time = readingTime(content);
+    frontmatter["words"] = time.words;
+    frontmatter["time"] = Math.round(time.minutes);
+
     return frontmatter;
   });
 
   return postFrontmatters;
-};
-
-export const calculatePostReadingTime = (numberOfWords: number) => {
-  let minutes = numberOfWords / 200;
-  let seconds = (minutes % 1) * 0.6 * 100;
-  minutes = Math.round(minutes);
-  seconds = Math.round(seconds);
-
-  return Math.round(minutes + seconds / 60);
 };
 
 export const retrieveProjectKey = () => {

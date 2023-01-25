@@ -9,7 +9,7 @@ import { FaCalendar, FaClock } from "react-icons/fa";
 import rehypeSlug from "rehype-slug";
 import Feedback from "../components/Feedback";
 import Layout from "../components/Layout";
-import { calculatePostReadingTime, Frontmatter } from "../utils/post-utils";
+import { fetchAllPosts, Frontmatter } from "../utils/post-utils";
 
 interface PostProps {
   frontmatter: Frontmatter;
@@ -19,14 +19,6 @@ interface PostProps {
 
 const Post: NextPage<PostProps> = ({ frontmatter, code, slug }: PostProps) => {
   const RenderedComponent = useMemo(() => getMDXComponent(code), [code]);
-  const readingTime = useMemo(
-    () =>
-      frontmatter.words
-        ? calculatePostReadingTime(frontmatter.words)
-        : undefined,
-    [frontmatter.words]
-  );
-
   return (
     <>
       <Layout
@@ -42,12 +34,10 @@ const Post: NextPage<PostProps> = ({ frontmatter, code, slug }: PostProps) => {
             <FaCalendar title="Date written" aria-label="Reading time" />
             <p>{frontmatter.date}</p>
           </span>
-          {readingTime && (
-            <span className="flex items-center space-x-2 sm:text-xl">
+          <span className="flex items-center space-x-2 sm:text-xl">
               <FaClock title="Reading time" aria-label="Reading time" />
-              <p>{readingTime} minutes</p>
-            </span>
-          )}
+              <p>{frontmatter.time} minutes</p>
+          </span>
         </section>
         <section className="px-10 pt-10 space-y-10 lg:pt-20 md:px-20 lg:px-40">
           <article className="prose prose-lg text-white prose-invert sm:prose-xl md:prose-2xl prose-pre:bg-gray-900">
@@ -97,7 +87,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     );
   }
 
-  const { code, frontmatter } = await bundleMDX({
+  const frontmatter = fetchAllPosts().find(post => post.slug.substring(1) === slug);
+  const { code } = await bundleMDX({
     source: unprocessedContent,
     mdxOptions(options) {
       options.rehypePlugins = [...(options.rehypePlugins ?? [rehypeSlug])];
