@@ -35,8 +35,8 @@ const Post: NextPage<PostProps> = ({ frontmatter, code, slug }: PostProps) => {
             <p>{frontmatter.date}</p>
           </span>
           <span className="flex items-center space-x-2 sm:text-xl">
-              <FaClock title="Reading time" aria-label="Reading time" />
-              <p>{frontmatter.time} minutes</p>
+            <FaClock title="Reading time" aria-label="Reading time" />
+            <p>{frontmatter.time} minutes</p>
           </span>
         </section>
         <section className="px-10 pt-10 space-y-10 lg:pt-20 md:px-20 lg:px-40">
@@ -87,7 +87,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
     );
   }
 
-  const frontmatter = fetchAllPosts().find(post => post.slug.substring(1) === slug);
+  const frontmatter = fetchAllPosts().find(
+    (post) => post.slug.substring(1) === slug
+  );
   const { code } = await bundleMDX({
     source: unprocessedContent,
     mdxOptions(options) {
