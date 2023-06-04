@@ -1,24 +1,33 @@
 import fs from "fs";
-import { bundleMDX } from "mdx-bundler";
-import { getMDXComponent } from "mdx-bundler/client";
 import type { NextPage } from "next";
 import { GetStaticPaths, GetStaticProps } from "next";
 import path from "path";
-import { useMemo } from "react";
 import { FaCalendar, FaClock } from "react-icons/fa";
 import rehypeSlug from "rehype-slug";
 import Feedback from "../components/Feedback";
 import Layout from "../components/Layout";
 import { fetchAllPosts, Frontmatter } from "../utils/post-utils";
+import remarkGfm from "remark-gfm";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import Prompt from "../components/Prompt";
+import Resource from "../components/Resource";
+import rehypeHighlight from "rehype-highlight";
 
 interface PostProps {
   frontmatter: Frontmatter;
-  code: string;
+  source: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, unknown>
+  >;
   slug?: string;
 }
 
-const Post: NextPage<PostProps> = ({ frontmatter, code, slug }: PostProps) => {
-  const RenderedComponent = useMemo(() => getMDXComponent(code), [code]);
+const Post: NextPage<PostProps> = ({
+  frontmatter,
+  source,
+  slug,
+}: PostProps) => {
   return (
     <>
       <Layout
@@ -40,8 +49,8 @@ const Post: NextPage<PostProps> = ({ frontmatter, code, slug }: PostProps) => {
           </span>
         </section>
         <section className="px-10 pt-10 space-y-10 lg:pt-20 md:px-20 lg:px-40">
-          <article className="prose prose-lg text-white prose-invert sm:prose-xl md:prose-2xl prose-pre:bg-gray-900">
-            <RenderedComponent />
+          <article className="prose prose-lg text-white prose-invert sm:prose-xl md:prose-2xl prose-pre:bg-black wrapper">
+            <MDXRemote {...source} components={{ Prompt, Resource }} />
           </article>
           <Feedback />
         </section>
@@ -70,39 +79,22 @@ export const getStaticProps: GetStaticProps = async (context) => {
     .readFileSync(path.join("posts", slug + ".mdx"), "utf-8")
     .trim();
 
-  if (process.platform === "win32") {
-    process.env.ESBUILD_BINARY_PATH = path.join(
-      process.cwd(),
-      "node_modules",
-      "esbuild",
-      "esbuild.exe"
-    );
-  } else {
-    process.env.ESBUILD_BINARY_PATH = path.join(
-      process.cwd(),
-      "node_modules",
-      "esbuild",
-      "bin",
-      "esbuild"
-    );
-  }
-
   const frontmatter = fetchAllPosts().find(
     (post) => post.slug.substring(1) === slug
   );
-  const { code } = await bundleMDX({
-    source: unprocessedContent,
-    mdxOptions(options) {
-      options.rehypePlugins = [...(options.rehypePlugins ?? [rehypeSlug])];
 
-      return options;
+  const source = await serialize(unprocessedContent, {
+    mdxOptions: {
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [rehypeSlug, rehypeHighlight],
     },
+    parseFrontmatter: true,
   });
 
   return {
     props: {
       frontmatter,
-      code,
+      source,
       slug,
     },
   };
