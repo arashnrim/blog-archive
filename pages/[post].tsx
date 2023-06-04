@@ -13,6 +13,8 @@ import { serialize } from "next-mdx-remote/serialize";
 import Prompt from "../components/Prompt";
 import Resource from "../components/Resource";
 import rehypeHighlight from "rehype-highlight";
+// @ts-ignore
+import rehypeFigure from "rehype-figure";
 
 interface PostProps {
   frontmatter: Frontmatter;
@@ -86,7 +88,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const source = await serialize(unprocessedContent, {
     mdxOptions: {
       remarkPlugins: [remarkGfm],
-      rehypePlugins: [rehypeSlug, rehypeHighlight],
+      rehypePlugins: [rehypeSlug, rehypeHighlight, rehypeFigure],
     },
     parseFrontmatter: true,
   });
