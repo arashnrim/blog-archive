@@ -37,7 +37,7 @@ const Post: NextPage<PostProps> = ({
         postDescription={frontmatter.description}
         postURL={"https://blog.arashnrim.me/" + slug}
       >
-        <section className="flex flex-col justify-end h-auto px-10 pt-40 pb-10 bg-gradient-to-b from-black rounded-b-3xl md:px-20 lg:px-40">
+        <section className="flex flex-col justify-end h-auto px-10 pt-40 pb-10 bg-gradient-to-b from-black md:px-20 lg:px-40 lg:pb-20 border-b-2 border-[#1f1f1f]">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl 2xl:text-8xl">
             {frontmatter.title}
           </h1>

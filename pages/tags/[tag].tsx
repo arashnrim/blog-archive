@@ -12,14 +12,14 @@ interface TagProps {
 const Tag = ({ tag, posts }: TagProps) => {
   return (
     <Layout>
-      <section className="h-[33vh] bg-black pb-10 flex flex-col justify-end rounded-b-3xl px-10 md:px-20 lg:px-40">
+      <section className="h-[33vh] bg-black pb-10 flex flex-col justify-end border-2 border-b-[#1f1f1f] px-10 md:px-20 lg:px-40">
         <button type="button" onClick={() => window.history.back()}>
           <span className="flex flex-row items-center space-x-2 text-lg">
             <FiChevronLeft />
             <p>Go back</p>
           </span>
         </button>
-        <h1 className="text-4xl   sm:text-5xl lg:text-7xl 2xl:text-8xl">
+        <h1 className="text-4xl sm:text-5xl lg:text-7xl 2xl:text-8xl mb-4">
           {tag}
         </h1>
         <span className="space-x-2 sm:text-xl md:text-2xl">

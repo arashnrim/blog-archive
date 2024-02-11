@@ -4,34 +4,34 @@
 
 @layer base {
   @font-face {
-    font-family: "HK Grotesk";
+    font-family: "General Sans";
     font-display: swap;
-    font-weight: 400;
-    src: url("../public/fonts/HKGrotesk-Regular.woff2") format("woff2");
-    src: url("../public/fonts/HKGrotesk-Regular.woff") format("woff");
+    font-weight: 500;
+    src: url("../public/fonts/GeneralSans-Medium.woff2") format("woff2");
+    src: url("../public/fonts/GeneralSans-Medium.woff") format("woff");
   }
   @font-face {
-    font-family: "HK Grotesk";
+    font-family: "General Sans";
     font-display: swap;
-    font-weight: 400;
+    font-weight: 500;
     font-style: italic;
-    src: url("../public/fonts/HKGrotesk-Italic.woff2") format("woff2");
-    src: url("../public/fonts/HKGrotesk-Italic.woff") format("woff");
+    src: url("../public/fonts/GeneralSans-MediumItalic.woff2") format("woff2");
+    src: url("../public/fonts/GeneralSans-MediumItalic.woff") format("woff");
   }
   @font-face {
-    font-family: "HK Grotesk";
+    font-family: "General Sans";
     font-display: swap;
-    font-weight: 800;
-    src: url("../public/fonts/HKGrotesk-ExtraBold.woff2") format("woff2");
-    src: url("../public/fonts/HKGrotesk-ExtraBold.woff") format("woff");
+    font-weight: 700;
+    src: url("../public/fonts/GeneralSans-Bold.woff2") format("woff2");
+    src: url("../public/fonts/GeneralSans-Bold.woff") format("woff");
   }
   @font-face {
-    font-family: "HK Grotesk";
+    font-family: "General Sans";
     font-display: swap;
-    font-weight: 800;
+    font-weight: 700;
     font-style: italic;
-    src: url("../public/fonts/HKGrotesk-ExtraBoldItalic.woff2") format("woff2");
-    src: url("../public/fonts/HKGrotesk-ExtraBoldItalic.woff") format("woff");
+    src: url("../public/fonts/GeneralSans-BoldItalic.woff2") format("woff2");
+    src: url("../public/fonts/GeneralSans-BoldItalic.woff") format("woff");
   }
   @font-face {
     font-family: "JetBrains Mono";
@@ -62,7 +62,7 @@
   }
 
   a {
-    @apply p-0.5 font-extrabold underline transition-colors rounded-sm hover:bg-white hover:text-black underline-offset-4 decoration-dotted;
+    @apply p-0.5 font-bold underline transition-colors rounded-sm hover:bg-white hover:text-black underline-offset-4 decoration-dotted;
   }
 
   h1,
@@ -71,7 +71,7 @@
   h4,
   h5,
   h6 {
-    @apply font-extrabold;
+    @apply font-bold;
   }
 
   * {

@@ -22,7 +22,7 @@ export const fetchAllPosts = (dateOptions?: object) => {
       "utf-8"
     );
 
-    const { data: frontmatter, content  } = matter(unprocessedContent);
+    const { data: frontmatter, content } = matter(unprocessedContent);
 
     // Generating the slug to the post
     frontmatter["slug"] = "/" + file.replace(".mdx", "");

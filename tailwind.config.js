@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["'HK Grotesk'"],
+        sans: ["'General Sans'"],
         mono: ["'JetBrains Mono'"],
       },
       colors: {

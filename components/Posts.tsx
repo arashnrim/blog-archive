@@ -36,7 +36,7 @@ const Posts = ({ frontmatters }: PostsProps) => {
         frontmatters.map((frontmatter) => {
           return (
             <Link href={frontmatter.slug!} key={frontmatter.title} passHref>
-              <a className="no-underline font-normal hover:bg-transparent hover:text-white p-10 space-y-2 transition-colors border border-gray-700 cursor-pointer hover:border-white rounded-2xl">
+              <a className="no-underline font-normal hover:bg-transparent hover:text-white p-10 space-y-2 transition-colors border-2 border-[#1f1f1f] cursor-pointer hover:border-white rounded-2xl">
                 <h2 className="text-4xl">{frontmatter.title}</h2>
                 {frontmatter.description && <p>{frontmatter.description}</p>}
                 <span className="flex flex-row items-center space-x-2">
