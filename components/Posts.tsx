@@ -35,34 +35,38 @@ const Posts = ({ frontmatters }: PostsProps) => {
       {frontmatters ? (
         frontmatters.map((frontmatter) => {
           return (
-            <Link href={frontmatter.slug!} key={frontmatter.title} passHref>
-              <a className="no-underline font-normal hover:bg-transparent hover:text-white p-10 space-y-2 transition-colors border-2 border-[#1f1f1f] cursor-pointer hover:border-white rounded-2xl">
-                <h2 className="text-4xl">{frontmatter.title}</h2>
-                {frontmatter.description && <p>{frontmatter.description}</p>}
+            <Link
+              href={frontmatter.slug!}
+              key={frontmatter.title}
+              passHref
+              className="no-underline font-normal hover:bg-transparent hover:text-white p-10 space-y-2 transition-colors border-2 border-[#1f1f1f] cursor-pointer hover:border-white rounded-2xl"
+            >
+              <h2 className="text-4xl">{frontmatter.title}</h2>
+              {frontmatter.description && <p>{frontmatter.description}</p>}
+              <span className="flex flex-row items-center space-x-2">
+                <FaCalendar />
+                <p>{frontmatter.date}</p>
+              </span>
+              <span className="flex flex-row items-center space-x-2">
+                <FaClock />
+                <p>{frontmatter.time} minutes</p>
+              </span>
+              {/* TODO: Fix this? */}
+              {/* {frontmatter.tags === undefined ? null : (
                 <span className="flex flex-row items-center space-x-2">
-                  <FaCalendar />
-                  <p>{frontmatter.date}</p>
+                  {frontmatter.tags.length > 1 ? <FaTags /> : <FaTag />}
+                  {frontmatter.tags.map((tag) => (
+                    <Link href={`/tags/${tag}`} key={tag} passHref className="">
+                      <p
+                        className="px-2 transition-colors border border-gray-700 rounded-lg cursor-pointer hover:border-white"
+                        key={tag}
+                      >
+                        {tag}
+                      </p>
+                    </Link>
+                  ))}
                 </span>
-                <span className="flex flex-row items-center space-x-2">
-                  <FaClock />
-                  <p>{frontmatter.time} minutes</p>
-                </span>
-                {frontmatter.tags === undefined ? null : (
-                  <span className="flex flex-row items-center space-x-2">
-                    {frontmatter.tags.length > 1 ? <FaTags /> : <FaTag />}
-                    {frontmatter.tags.map((tag) => (
-                      <Link href={`/tags/${tag}`} key={tag} passHref>
-                        <p
-                          className="px-2 transition-colors border border-gray-700 rounded-lg cursor-pointer hover:border-white"
-                          key={tag}
-                        >
-                          {tag}
-                        </p>
-                      </Link>
-                    ))}
-                  </span>
-                )}
-              </a>
+              )} */}
             </Link>
           );
         })
