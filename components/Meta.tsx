@@ -27,12 +27,6 @@ const Meta = ({
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content={title} />
     <meta property="og:image" content={image} />
-
-    <script
-      defer
-      data-domain="blog.arashnrim.me"
-      src="https://analytics.arashnrim.me/js/script.js"
-    ></script>
   </Head>
 );
 
