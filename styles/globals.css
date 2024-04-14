@@ -62,7 +62,7 @@
   }
 
   a {
-    @apply p-0.5 font-bold underline transition-colors rounded-sm hover:bg-white hover:text-black underline-offset-4 decoration-dotted;
+    @apply py-0.5 px-1 border-white border-2 no-underline;
   }
 
   h1,
